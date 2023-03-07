@@ -1,0 +1,92 @@
+# Language code specification: https://www.w3.org/International/articles/language-tags/
+# Exclusion:
+# - EN
+# - SC -> TC
+# - Regional
+# - CJK Regional
+# - Glyphs
+# - Symbols
+# - Numbers
+# - Pure Katakana and Hiragana
+# - Others
+dataset:
+  path: ./dataset/fonts
+  specs:
+    - path:
+        - ./Adobe/CJK
+      rule: |
+        lambda x: \
+          x.split('/')[-1].split('\\')[-1].startswith('SourceHanSans-') \
+          or x.split('/')[-1].split('\\')[-1].startswith('SourceHanSerif-')
+      language: CJK
+    - path:
+        - ./Google（谷歌）/CJK
+      rule: |
+        lambda x: \
+          x.split('/')[-1].split('\\')[-1].startswith('NotoSansCJK-') \
+          or x.split('/')[-1].split('\\')[-1].startswith('NotoSansMonoCJK-') \
+          or x.split('/')[-1].split('\\')[-1].startswith('NotoSerifCJK-')
+      language: CJK
+    - path:
+        - ./Arphic（文鼎）/简体
+        - ./DynaFont（华康）/简体
+        - ./Fontworks/简体
+        - ./Founder Type（方正）/简体
+        - ./Hanyi Fonts（汉仪）/简体
+        - ./Microsoft（微软）/简体
+        - ./Monotype（蒙纳）/简体
+        - ./SinoType（华文）/简体
+        - ./TensenType（腾祥）/简体
+        - ./其他/简体
+      language: zh-Hans
+    - path:
+        - ./Adobe/繁体
+        - ./Arphic（文鼎）/繁体
+        - ./Fontworks/繁体
+        - ./Founder Type（方正）/繁体
+        - ./Hanyi Fonts（汉仪）/繁体
+        - ./Microsoft（微软）/繁体
+        - ./Monotype（蒙纳）/繁体
+        - ./SinoType（华文）/繁体
+        - ./TensenType（腾祥）/繁体
+        - ./其他/繁体
+      language: zh-Hant
+    - path:
+        - ./Adobe/简繁
+        - ./Arphic（文鼎）/简繁
+        - ./DynaFont（华康）/简繁
+        - ./Founder Type（方正）/简繁
+        - ./Hanyi Fonts（汉仪）/简繁
+        - ./Microsoft（微软）/简繁
+        - ./Monotype（蒙纳）/简繁
+        - ./Morisawa（森泽）/简繁
+        - ./SinoType（华文）/简繁
+        - ./TensenType（腾祥）/简繁
+        - ./其他/简繁
+      language: zh
+    - path:
+        - ./Adobe/日文
+        - ./Arphic（文鼎）/日文
+        - ./DynaFont（华康）/日文
+        - ./Fontworks/日文
+        - ./Monotype（蒙纳）/日文
+        - ./Morisawa（森泽）/日文/MorisawaAOTF/日文
+        - ./Morisawa（森泽）/日文/MorisawaAPOTF
+        - ./Morisawa（森泽）/日文/MorisawaGOTF
+        - ./Morisawa（森泽）/日文/MorisawaUOTF
+        - ./TensenType（腾祥）/日文
+        - ./其他/日文
+      language: ja
+    - path:
+        - ./DynaFont（华康）/繁体/港版
+      language: zh-Hant-HK
+    - path:
+        - ./DynaFont（华康）/繁体/台版
+      language: zh-Hant-TW
+    - path:
+        - ./DynaFont（华康）/韩文
+        - ./Fontworks/韩文
+        - ./Founder Type（方正）/韩文
+        - ./Morisawa（森泽）/韩文
+        - ./其他/韩文
+      language: ko
