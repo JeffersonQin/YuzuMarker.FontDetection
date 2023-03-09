@@ -1,7 +1,7 @@
 import os
 
 
-__all__ = ['get_files']
+__all__ = ["get_files"]
 
 
 def get_files(path):
