@@ -15,7 +15,7 @@ short_ratio = 0.1
 median_ratio = 0.6
 long_ratio = 0.3
 
-from .text import CorpusGenerationConfig
+from .text import CorpusGenerationConfig, CorpusGeneratorManager
 
 short_condition = CorpusGenerationConfig(
     min_num_line=1, max_num_line=1, min_num_char_per_line=2, max_num_char_per_line=5
@@ -242,7 +242,9 @@ def RGB2RGBA(color):
     return color + (255,)
 
 
-def generate(img_path: str, font: DSFont) -> tuple[Image.Image, FontLabel]:
+def generate(
+    img_path: str, font: DSFont, corpus_manager: CorpusGeneratorManager
+) -> tuple[Image.Image, FontLabel]:
     while True:
         try:
             im = Image.open(img_path)
@@ -274,20 +276,13 @@ def generate(img_path: str, font: DSFont) -> tuple[Image.Image, FontLabel]:
             else:
                 text_direction = "ttb"
 
-            # # text length
-            # if random.random() < short_ratio:
-            #     text_length = random.randint(1, short_condition['char'])
-            #     # TODO: generate text
-            #     text = 'a' * text_length
-            # elif random.random() < median_ratio:
-            #     text_line = random.randint(short_condition['line'], median_condition['line'])
-            #     # TODO: generate text
-            #     text = 'a\n' * text_line
-            # else:
-            #     text_line = random.randint(median_condition['line'], long_condition['line'])
-            #     # TODO: generate text
-            #     text = 'a\n' * text_line
-            text = "测试文本\n第二行"
+            # text length
+            if random.random() < short_ratio:
+                text = corpus_manager.generate(short_condition, font, render_language)
+            elif random.random() < median_ratio:
+                text = corpus_manager.generate(median_condition, font, render_language)
+            else:
+                text = corpus_manager.generate(long_condition, font, render_language)
 
             # text color & stroke
             if random.random() < gray_ratio:
