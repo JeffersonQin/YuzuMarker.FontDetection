@@ -1,4 +1,5 @@
 import os
+import random
 from PIL import Image
 
 
@@ -10,5 +11,4 @@ def background_image_generator(path="./dataset/pixivimages"):
     image_list = [os.path.join(path, image) for image in image_list]
 
     while True:
-        for image in image_list:
-            yield image
+        yield random.choice(image_list)

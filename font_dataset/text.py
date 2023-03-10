@@ -77,11 +77,9 @@ class JapaneseUtaNetCorpusGenerator(CommonCorpusGenerator):
         self.conn = sqlite3.connect("lyrics_corpus/cache/uta-net.db")
         self.cur = self.conn.cursor()
 
-        i = 0
-
         while True:
             self.cur.execute(
-                f"SELECT lyrics FROM lyrics ORDER BY song_id LIMIT 1 OFFSET {i}"
+                "SELECT lyrics FROM lyrics WHERE song_id IN (SELECT song_id FROM lyrics ORDER BY RANDOM() LIMIT 1)"
             )
             row = self.cur.fetchone()
             if row is not None:
@@ -92,7 +90,6 @@ class JapaneseUtaNetCorpusGenerator(CommonCorpusGenerator):
                     continue
             else:
                 return
-            i += 1
 
     def _random_place_holder(self, font: DSFont) -> str:
         r = random.randint(1, 3)
