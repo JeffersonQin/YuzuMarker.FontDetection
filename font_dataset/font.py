@@ -38,4 +38,5 @@ def load_fonts(config_path="configs/font.yml") -> list[DSFont]:
                     continue
                 font_list.append(DSFont(file, spec["language"]))
 
+    font_list.sort(key=lambda x: x.path)
     return font_list
