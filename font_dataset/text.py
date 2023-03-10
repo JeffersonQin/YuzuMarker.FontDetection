@@ -3,10 +3,7 @@ import requests
 from .font import DSFont
 from .helper import char_in_font
 
-__all__ = [
-    "random_char",
-    "CorpusGenerationConfig",
-]
+__all__ = ["random_char", "CorpusGenerationConfig", "CorpusGeneratorManager"]
 
 # https://zh.wikipedia.org/zh-hans/%E5%B9%B3%E5%81%87%E5%90%8D
 hiragana = (
@@ -194,12 +191,18 @@ class CorpusGeneratorManager:
             "ko": KoreanRandomCorpusGeneratorWithEnglish(),
         }
 
-    def get_generator(self, font: DSFont) -> CommonCorpusGenerator:
+    def _get_generator(
+        self, font: DSFont, CJK_language: str = None
+    ) -> CommonCorpusGenerator:
+        langauge = CJK_language if CJK_language is not None else font.language
+
         for k, v in self.generators.items():
-            if font.language.startswith(k):
+            if langauge.startswith(k):
                 return v
 
         raise Exception(f"no generator for {font.language}")
 
-    def generate(self, config: CorpusGenerationConfig, font: DSFont) -> str:
-        return self.get_generator(font).generate(config, font)
+    def generate(
+        self, config: CorpusGenerationConfig, font: DSFont, CJK_language: str = None
+    ) -> str:
+        return self._get_generator(font, CJK_language).generate(config, font)
