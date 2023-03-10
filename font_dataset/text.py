@@ -74,7 +74,7 @@ class JapaneseUtaNetCorpusGenerator(CommonCorpusGenerator):
     def _corpus_generator(self):
         import sqlite3
 
-        self.conn = sqlite3.connect("lyrics_corpus/cache/uta-net.db")
+        self.conn = sqlite3.connect("/kaggle/input/utanetlyricscorpus/uta-net.db")
         self.cur = self.conn.cursor()
 
         while True:

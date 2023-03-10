@@ -10,7 +10,7 @@
 # - Pure Katakana and Hiragana
 # - Others
 dataset:
-  path: ./dataset/fonts
+  path: /kaggle/input/yuzumarkerfontdetection/dataset/fonts
   specs:
     - path:
         - ./Adobe/CJK
