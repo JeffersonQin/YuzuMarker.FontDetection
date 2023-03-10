@@ -45,7 +45,7 @@ def generate_dataset(dataset_type: str, cnt: int):
             try:
                 i, j, font = args
 
-                image_file_name = f"font_{i}_img_{j}.png"
+                image_file_name = f"font_{i}_img_{j}.jpg"
                 label_file_name = f"font_{i}_img_{j}.bin"
 
                 image_file_path = os.path.join(dataset_bath_dir, image_file_name)
