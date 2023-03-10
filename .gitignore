@@ -1,4 +1,5 @@
 dataset
+lyrics_corpus/cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
