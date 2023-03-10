@@ -15,11 +15,19 @@ short_ratio = 0.1
 median_ratio = 0.6
 long_ratio = 0.3
 
-short_condition = {"line": 1, "char": 5}  # line count  # <= char count
+from .text import CorpusGenerationConfig
 
-median_condition = {"line": 4}  # <= line count
+short_condition = CorpusGenerationConfig(
+    min_num_line=1, max_num_line=1, min_num_char_per_line=2, max_num_char_per_line=5
+)
 
-long_condition = {"line": 10}  # <= line count
+median_condition = CorpusGenerationConfig(
+    min_num_line=1, max_num_line=4, min_num_char_per_line=1, max_num_char_per_line=20
+)
+
+long_condition = CorpusGenerationConfig(
+    min_num_line=5, max_num_line=10, min_num_char_per_line=1, max_num_char_per_line=20
+)
 
 assert short_ratio + median_ratio + long_ratio - 1 < epislon
 
@@ -88,7 +96,7 @@ import math
 import random
 from PIL import Image, ImageDraw, ImageFont
 from .fontlabel import FontLabel
-from ..loader.font import DSFont
+from .font import DSFont
 
 
 def random_color():

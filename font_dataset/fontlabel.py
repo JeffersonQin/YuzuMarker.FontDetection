@@ -1,6 +1,7 @@
-__all__ = ['FontLabel']
+__all__ = ["FontLabel"]
 
-from ..loader.font import DSFont
+from .font import DSFont
+
 
 class FontLabel:
     """
@@ -18,6 +19,7 @@ class FontLabel:
     :param bbox: bounding box, (left, top, width, height)
     :param angle: angle in degrees
     """
+
     def __init__(
         self,
         image_width: int,
