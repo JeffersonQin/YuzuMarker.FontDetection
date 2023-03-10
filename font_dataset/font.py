@@ -13,7 +13,7 @@ class DSFont:
         self.language = language
 
 
-def load_fonts(config_path="configs/dataset.yml") -> list[DSFont]:
+def load_fonts(config_path="configs/font.yml") -> list[DSFont]:
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
 
