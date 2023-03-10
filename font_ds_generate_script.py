@@ -20,7 +20,7 @@ num_workers = 32
 cjk_ratio = 3
 
 train_cnt = 100
-val_cnt = 10
+val_cnt = 5
 test_cnt = 30
 
 train_cnt_cjk = int(train_cnt * cjk_ratio)
