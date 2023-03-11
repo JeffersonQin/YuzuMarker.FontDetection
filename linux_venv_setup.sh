@@ -21,12 +21,12 @@ sed -i 's/sudo/sudo -E env PATH=$PATH/g' install_raqm.sh
 # install script
 chmod +x ./install_raqm.sh && ./install_raqm.sh
 
-# install everything
-pip install -r requirements_generate_font_dataset.txt
-
 #clean up
 cd ../..
 rm -rf Pillow
+
+# install everything
+pip install -r requirements_generate_font_dataset.txt
 
 # download wordlist (added since my cluster has bad public network connection)
 wget https://www.mit.edu/~ecprice/wordlist.10000
