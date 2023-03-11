@@ -11,9 +11,21 @@ int total_mission = 64;
 int min_mission = 33;
 int max_mission = 48;
 
+#ifndef TOTAL_MISSION
+#define TOTAL_MISSION total_mission
+#endif
+
+#ifndef MIN_MISSION
+#define MIN_MISSION min_mission
+#endif
+
+#ifndef MAX_MISSION
+#define MAX_MISSION max_mission
+#endif
+
 
 int main(int argc, char* argv[]) {
-	for (int i = min_mission; i <= max_mission; i ++) {
+	for (int i = MIN_MISSION; i <= MAX_MISSION; i ++) {
 		int pid = fork();
 		if (pid < 0) {
 			perror("fork");
@@ -26,7 +38,7 @@ int main(int argc, char* argv[]) {
 			memset(batch_count, '\0', MAX_DIGIT * sizeof(char));
 
 			sprintf(batch_number, "%d", i);
-			sprintf(batch_count, "%d", total_mission);
+			sprintf(batch_count, "%d", TOTAL_MISSION);
 
 			char *cmd = "./venv/bin/python";
 			char *args[] = {"./venv/bin/python", "font_ds_generate_script.py", batch_number, batch_count, NULL};
