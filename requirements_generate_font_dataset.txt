@@ -1,0 +1,14 @@
+certifi==2022.12.7
+charset-normalizer==2.0.12
+fonttools==4.27.1
+idna==3.4
+importlib-resources==5.4.0
+meson==0.61.5
+ninja==1.11.1
+Pillow==8.4.0
+pkg-resources==0.0.0
+PyYAML==6.0
+requests==2.27.1
+tqdm==4.64.1
+urllib3==1.26.15
+zipp==3.6.0
