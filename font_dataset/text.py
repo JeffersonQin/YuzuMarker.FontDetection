@@ -1,3 +1,4 @@
+import os
 import random
 import requests
 from .font import DSFont
@@ -135,9 +136,13 @@ class RandomCorpusGeneratorWithEnglish(CommonCorpusGenerator):
     def __init__(
         self, char_set: str, prob: float = 0.3, when_length_greater_than: int = 10
     ):
-        word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
-        response = requests.get(word_site)
-        self.english_words = response.text.splitlines()
+        if os.path.exists("wordlist.txt"):
+            with open("wordlist.txt", "r", encoding="utf-8") as f:
+                self.english_words = f.read().splitlines()
+        else:
+            word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
+            response = requests.get(word_site)
+            self.english_words = response.text.splitlines()
         self.char_set = char_set
         self.prob = prob
         self.when_length_greater_than = when_length_greater_than
