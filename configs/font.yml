@@ -14,6 +14,25 @@ dataset:
   exclusion:
     - ./Founder Type（方正）/韩文/方正朝文中圆.TTF
     - ./Founder Type（方正）/简繁/ttf/方正宋体S-超大字符集(SIP).TTF
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_503L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 503L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_504L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 504L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 505L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_506L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 506L.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_508R.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 508R.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_509R.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 509R.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_510M.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 510M.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_511M.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 511M.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_512B.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 512B.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_513B.ttf
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 513B.ttf
   specs:
     - path:
         - ./Adobe/CJK
