@@ -1,3 +1,7 @@
+*.o
+*.out
+
+
 wordlist.txt
 dataset
 lyrics_corpus/cache
