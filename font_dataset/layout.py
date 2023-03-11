@@ -1,3 +1,5 @@
+from typing import Tuple
+
 __all__ = ["generate_font_image"]
 
 
@@ -237,7 +239,7 @@ def RGB2RGBA(color):
 
 def generate_font_image(
     img_path: str, font: DSFont, corpus_manager: CorpusGeneratorManager
-) -> tuple[Image.Image, FontLabel]:
+) -> Tuple[Image.Image, FontLabel]:
     im = Image.open(img_path)
     # crop image
     width, height = im.size

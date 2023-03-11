@@ -1,5 +1,6 @@
 __all__ = ["FontLabel"]
 
+from typing import Tuple
 from .font import DSFont
 
 
@@ -26,14 +27,14 @@ class FontLabel:
         image_height: int,
         text: str,
         font: DSFont,
-        text_color: tuple[int, int, int],
+        text_color: Tuple[int, int, int],
         text_size: int,
         text_direction: str,
         stroke_width: int,
-        stroke_color: tuple[int, int, int],
+        stroke_color: Tuple[int, int, int],
         line_spacing: int,
         language: str,
-        bbox: tuple[int, int, int, int],
+        bbox: Tuple[int, int, int, int],
         angle: int,
     ):
         self.image_width = image_width
