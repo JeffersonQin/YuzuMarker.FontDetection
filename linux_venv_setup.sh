@@ -1,10 +1,11 @@
+sudo apt update && apt install python3-venv
+
 # init virtual env
-python -m venv venv
+python3 -m venv venv
 
 source venv/bin/activate
 
 # install pillow deps
-sudo apt update
 sudo apt-get install libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev \
     libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk \
     libharfbuzz-dev libfribidi-dev libxcb1-dev -y
@@ -26,4 +27,8 @@ pip install -r requirements_generate_font_dataset.txt
 #clean up
 cd ../..
 rm -rf Pillow
+
+# download wordlist (added since my cluster has bad public network connection)
+wget https://www.mit.edu/~ecprice/wordlist.10000
+mv wordlist.10000 wordlist.txt
 
