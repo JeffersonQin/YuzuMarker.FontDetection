@@ -1,4 +1,4 @@
-sudo apt update && apt install python3-venv
+sudo apt update && sudo apt install python3-venv -y
 
 # init virtual env
 python3 -m venv venv
