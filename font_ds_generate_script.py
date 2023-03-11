@@ -31,7 +31,7 @@ dataset_path = "./dataset/font_img"
 os.makedirs(dataset_path, exist_ok=True)
 
 
-fonts = load_fonts()
+fonts, exclusion_rule = load_fonts()
 corpus_manager = CorpusGeneratorManager()
 images = background_image_generator()
 
@@ -41,10 +41,17 @@ def generate_dataset(dataset_type: str, cnt: int):
     os.makedirs(dataset_bath_dir, exist_ok=True)
 
     def _generate_single(args):
+        i, j, font = args
+        print(
+            f"Generating {dataset_type} font: {font.path} {i} / {len(fonts)}, image {j}"
+        )
+
+        if exclusion_rule(font):
+            print(f"Excluded font: {font.path}")
+            return
+
         while True:
             try:
-                i, j, font = args
-
                 image_file_name = f"font_{i}_img_{j}.jpg"
                 label_file_name = f"font_{i}_img_{j}.bin"
 

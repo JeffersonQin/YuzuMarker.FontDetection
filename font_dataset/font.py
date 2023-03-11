@@ -1,6 +1,5 @@
 import yaml
 import os
-from typing import List
 
 
 from .utils import get_files
@@ -15,7 +14,7 @@ class DSFont:
         self.language = language
 
 
-def load_fonts(config_path="configs/font.yml") -> List[DSFont]:
+def load_fonts(config_path="configs/font.yml"):
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
 
@@ -41,4 +40,14 @@ def load_fonts(config_path="configs/font.yml") -> List[DSFont]:
                 font_list.append(DSFont(file, spec["language"]))
 
     font_list.sort(key=lambda x: x.path)
-    return font_list
+
+    exclusion_list = ds_config["exclusion"]
+    exclusion_list = [os.path.join(ds_path, path) for path in exclusion_list]
+
+    def exclusion_rule(font: DSFont):
+        for exclusion in exclusion_list:
+            if os.path.samefile(font.path, exclusion):
+                return True
+        return False
+
+    return font_list, exclusion_rule

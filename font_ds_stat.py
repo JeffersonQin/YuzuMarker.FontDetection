@@ -23,12 +23,16 @@ test_cnt_cjk = int(test_cnt * cjk_ratio)
 dataset_path = "./dataset/font_img"
 os.makedirs(dataset_path, exist_ok=True)
 
-fonts = load_fonts()
+fonts, exclusion_rule = load_fonts()
 
 
 cnt = 0
 
 for font in fonts:
+    if exclusion_rule(font):
+        print(f"Excluded font: {font.path}")
+        continue
+
     if font.language == "CJK":
         cnt += cjk_ratio
     else:

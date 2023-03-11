@@ -11,6 +11,9 @@
 # - Others
 dataset:
   path: ./dataset/fonts
+  exclusion:
+    - ./Founder Type（方正）/韩文/方正朝文中圆.TTF
+    - ./Founder Type（方正）/简繁/ttf/方正宋体S-超大字符集(SIP).TTF
   specs:
     - path:
         - ./Adobe/CJK
