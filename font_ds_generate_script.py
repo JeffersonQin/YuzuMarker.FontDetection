@@ -4,9 +4,10 @@ import pickle
 import os
 import concurrent.futures
 from tqdm import tqdm
+import time
 from font_dataset.font import load_fonts
 from font_dataset.layout import generate_font_image
-from font_dataset.text import CorpusGeneratorManager
+from font_dataset.text import CorpusGeneratorManager, UnqualifiedFontException
 from font_dataset.background import background_image_generator
 
 
@@ -72,7 +73,12 @@ def generate_dataset(dataset_type: str, cnt: int):
                 im.save(image_file_path)
                 pickle.dump(label, open(label_file_path, "wb"))
                 return
-            except Exception as e:
+            except UnqualifiedFontException as e:
+                print(f"SKIPPING Unqualified font: {e.font.path}")
+                with open(f"unqualified_font_{time.time_ns()}.txt", "a") as f:
+                    f.write(f"{e.font.path}\n")
+                return
+            except Exception as _:
                 traceback.print_exc()
                 continue
 
