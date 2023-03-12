@@ -38,6 +38,12 @@ dataset:
     - ./其他/日文/FGCCHGW3.TTC
     - ./其他/日文/Jiyukobo（字游工房）/假名/築地体一号太仮名.otf
     - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三十五ポイント仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三号太仮名.otf
+    - ./其他/日文/TypeBank/假名/RoVenetian-Book.otf
+    - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9 - HGPHeiseiMinchotaiW9 - HGSHeiseiMinchotaiW9.ttc
+    - ./其他/日文/恋文ペン字.TTF
+    - ./其他/简体/汉鼎简新艺体.TTF
   specs:
     - path:
         - ./Adobe/CJK
