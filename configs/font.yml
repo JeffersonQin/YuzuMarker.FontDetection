@@ -267,8 +267,191 @@ dataset:
     - ./其他/日文/TypeBank/假名/RoVenetian-Book.otf
     - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8.ttf
     - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9 - HGPHeiseiMinchotaiW9 - HGSHeiseiMinchotaiW9.ttc
+    - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8L.ttf
+    - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8S.ttf
+    - ./其他/日文/RICOH（理光）/HGArisawaKaishotai - HGPArisawaKaishotai - HGSArisawaKaishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGArisawaKaishotai.ttf
+    - ./其他/日文/RICOH（理光）/HGBouquet - HGPBouquet - HGSBouquet.ttc
+    - ./其他/日文/RICOH（理光）/HGBouquet.ttf
+    - ./其他/日文/RICOH（理光）/HGEdomojiKanteiryu - HGPEdomojiKanteiryu - HGSEdomojiKanteiryu.ttc
+    - ./其他/日文/RICOH（理光）/HGGyokoku - HGPGyokoku - HGSGyokoku.TTC
+    - ./其他/日文/RICOH（理光）/HGGyoshotai - HGPGyoshotai - HGSGyoshotai.ttc
+    - ./其他/日文/RICOH（理光）/HGHagoromoB.TTF
+    - ./其他/日文/RICOH（理光）/HGHagoromoE.ttf
+    - ./其他/日文/RICOH（理光）/HGHagoromoL.ttf
+    - ./其他/日文/RICOH（理光）/HGHagoromoM.TTF
+    - ./其他/日文/RICOH（理光）/HGHakushuFutoKaishotai - HGPHakushuFutoKaishotai - HGSHakushuFutoKaishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGHakushuGokubutoKaishotai - HGPHakushuGokubutoKaishotai - HGSHakushuGokubutoKaishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGHakushuGokubutoKaishotai.ttf
+    - ./其他/日文/RICOH（理光）/HGHakushuGyososhotai - HGPHakushuGyososhotai - HGSHakushuGyososhotai.ttc
+    - ./其他/日文/RICOH（理光）/HGHakushuPenkaishotai - HGPHakushuPenkaishotai - HGSHakushuPenkaishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGHakushuPenkaishotai.ttf
+    - ./其他/日文/RICOH（理光）/HGHanKointai - HGPHanKointai - HGSHanKointai.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugoW9L.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugoW9S.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW3 - HGPHeiseiKakugothictaiW3 - HGSHeiseiKakugothictaiW3.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW3.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW5 - HGPHeiseiKakugothictaiW5 - HGSHeiseiKakugothictaiW5.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW7 - HGPHeiseiKakugothictaiW7 - HGSHeiseiKakugothictaiW7.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW7.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW9 - HGPHeiseiKakugothictaiW9 - HGSHeiseiKakugothictaiW9.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW4 - HGPHeiseiMarugothictaiW4 - HGSHeiseiMarugothictaiW4.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8 - HGPHeiseiMarugothictaiW8 - HGSHeiseiMarugothictaiW8.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8L.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8S.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW3 - HGPHeiseiMinchotaiW3 - HGSHeiseiMinchotaiW3.ttc
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9L.ttf
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9S.ttf
+    - ./其他/日文/RICOH（理光）/HGHigemoji - HGPHigemoji - HGSHigemoji.ttc
+    - ./其他/日文/RICOH（理光）/HGKasaneKakugothicH - HGPKasaneKakugothicH - HGSKasaneKakugothicH.ttc
+    - ./其他/日文/RICOH（理光）/HGKyokashotai - HGPKyokashotai - HGSKyokashotai.ttc
+    - ./其他/日文/RICOH（理光）/HGKyokusuiE.ttf
+    - ./其他/日文/RICOH（理光）/HGKyokusuiM.ttf
+    - ./其他/日文/RICOH（理光）/HGOzawaKaishotai - HGPOzawaKaishotai - HGSOzawaKaishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGOzawaKaishotai.ttf
+    - ./其他/日文/RICOH（理光）/HGPrettyFrankH.ttf
+    - ./其他/日文/RICOH（理光）/HGPrettyFrankHL.ttf
+    - ./其他/日文/RICOH（理光）/HGPrettyFrankHS.ttf
+    - ./其他/日文/RICOH（理光）/HGReithic.ttf
+    - ./其他/日文/RICOH（理光）/HGSeikaishotai - HGPSeikaishotai - HGSSeikaishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGSoeiIorishotai - HGPSoeiIorishotai - HGSSoeiIorishotai.ttc
+    - ./其他/日文/RICOH（理光）/HGSoeiIorishotai.ttf
+    - ./其他/日文/RICOH（理光）/HGSoeiKakugothicUB - HGPSoeiKakugothicUB - HGSSoeiKakugothicUB.ttc
+    - ./其他/日文/RICOH（理光）/HGSoeiKakugothicUB.ttf
+    - ./其他/日文/RICOH（理光）/HGSoeiKakupoptai - HGPSoeiKakupoptai - HGSSoeiKakupoptai.ttc
+    - ./其他/日文/RICOH（理光）/HGSoeiMarupoptai - HGPSoeiMarupoptai - HGSSoeiMarupoptai.ttc
+    - ./其他/日文/RICOH（理光）/HGSoeiPenjitai - HGPSoeiPenjitai - HGSSoeiPenjitai.ttc
+    - ./其他/日文/RICOH（理光）/HGSoeiPresenceEB - HGPSoeiPresenceEB - HGSSoeiPresenceEB.ttc
+    - ./其他/日文/RICOH（理光）/HGSyounanGyoshotai - HGPSyounanGyoshotai - HGSSyounanGyoshotai.ttc
+    - ./其他/日文/RICOH（理光）/HGTakahashiFudekaishotai.ttf
+    - ./其他/日文/RICOH（理光）/HGTakahashiReishotai.ttf
+    - ./其他/日文/RICOH（理光）/HG創英丸ﾎﾟｯﾌﾟ体.ttf
+    - ./其他/日文/RICOH（理光）/HG創英角ﾎﾟｯﾌﾟ体.ttf
+    - ./其他/日文/RICOH（理光）/HG創英ﾌﾟﾚｾﾞﾝｽEB.ttf
+    - ./其他/日文/RICOH（理光）/HG創英ﾍﾟﾝ字体.ttf
+    - ./其他/日文/RICOH（理光）/HG千葉ﾍﾟﾝ字体.ttf
+    - ./其他/日文/RICOH（理光）/HG半古印体.ttf
+    - ./其他/日文/RICOH（理光）/HG平成丸ｺﾞｼｯｸ体W4.ttf
+    - ./其他/日文/RICOH（理光）/HG平成明朝体W3.ttf
+    - ./其他/日文/RICOH（理光）/HG平成明朝体W9.ttf
+    - ./其他/日文/RICOH（理光）/HG平成角ｺﾞｼｯｸ体W5.ttf
+    - ./其他/日文/RICOH（理光）/HG平成角ｺﾞｼｯｸ体W9.ttf
+    - ./其他/日文/RICOH（理光）/HG教科書体.ttf
+    - ./其他/日文/RICOH（理光）/HG正楷書体.ttf
+    - ./其他/日文/RICOH（理光）/HG江戸文字勘亭流.ttf
+    - ./其他/日文/RICOH（理光）/HG白洲太楷書体.ttf
+    - ./其他/日文/RICOH（理光）/HG白洲行草書体.ttf
+    - ./其他/日文/RICOH（理光）/HG祥南行書体.ttf
+    - ./其他/日文/RICOH（理光）/HG行刻.ttf
+    - ./其他/日文/RICOH（理光）/HG行書体.ttf
     - ./其他/日文/恋文ペン字.TTF
+    - ./其他/日文/祥南行書体.TTF
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookItalic.otf
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookItalicOsF.otf
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookSC.otf
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookVertical.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-B.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-E.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-GB.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-GE.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-GM.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-GU.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-L.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-M.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-MB.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-ME.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-MM.otf
+    - ./其他/日文/TypeBank/假名/RoYNStd-MU.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Bold.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Heavy.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Medium.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Regular.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoKigo-M.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoKigo-R.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Bold.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Heavy.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Medium.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Regular.otf
+    - ./其他/日文/TypeBank/假名/UDDigiKyoWriting-Regular.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-E.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-GB.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-GE.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-GM.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-GU.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-L.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-M.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-MB.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-ME.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-MM.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-MU.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-B.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-E.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-GB.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-GE.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-GM.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-GU.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-L.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-M.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-MB.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-ME.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-MM.otf
+    - ./其他/日文/TypeBank/假名/RoTJStd-MU.otf
+    - ./其他/日文/TypeBank/假名/RoBaskerville-Book.otf
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookItalic.otf
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookItalicOsF.otf
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookSC.otf
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookVertical.otf
+    - ./其他/日文/TypeBank/假名/RoBodoni-Book.otf
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookItalic.otf
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookItalicOsF.otf
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookSC.otf
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookVertical.otf
+    - ./其他/日文/TypeBank/假名/RoGaramond-Book.otf
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookItalic.otf
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookItalicOsF.otf
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookSC.otf
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookVertical.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-B.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-E.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-GB.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-GE.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-GM.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-GU.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-L.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-M.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-MB.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-ME.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-MM.otf
+    - ./其他/日文/TypeBank/假名/RoKDStd-MU.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-B.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-E.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-GB.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-GE.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-GM.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-GU.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-L.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-M.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-MB.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-ME.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-MM.otf
+    - ./其他/日文/TypeBank/假名/RoKMStd-MU.otf
+    - ./其他/日文/TypeBank/假名/RoRKStd-B.otf
     - ./其他/简体/汉鼎简新艺体.TTF
+    - ./其他/简体/汉鼎简粗圆.TTF
+    - ./其他/简体/特粗黑体.ttf
+    - ./其他/简繁/SimSun-ExtB.ttf
+    - ./其他/繁体/中國龍古印體.TTF
+    - ./其他/繁体/中國龍瑩篆體.TTF
+    - ./其他/繁体/全真方新書.ttf
+    - ./其他/繁体/和平粗圓.ttf
+    - ./其他/繁体/超研澤中圓.ttf
+    - ./其他/繁体/超研澤中特圓.ttf
+    - ./其他/繁体/超研澤中鋼筆行楷.ttf
+    - ./其他/繁体/超研澤勘亭流.TTF
+    - ./其他/繁体/超研澤粗圓.ttf
+    - ./其他/繁体/超研澤細行楷.ttf
+    - ./其他/繁体/超研澤超明.ttf
   specs:
     - path:
         - ./Adobe/CJK
