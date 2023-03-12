@@ -31,7 +31,7 @@ test_cnt_cjk = int(test_cnt * cjk_ratio)
 dataset_path = "./dataset/font_img"
 os.makedirs(dataset_path, exist_ok=True)
 
-unqualified_log_file_name = f"unqualified_font_{time.time_ns()}.txt"
+unqualified_log_file_name = f"unqualified_font_{time.time()}.txt"
 
 
 fonts, exclusion_rule = load_fonts()
