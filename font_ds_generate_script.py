@@ -32,7 +32,7 @@ dataset_path = "./dataset/font_img"
 os.makedirs(dataset_path, exist_ok=True)
 
 unqualified_log_file_name = f"unqualified_font_{time.time()}.txt"
-
+runtime_exclusion_list = []
 
 fonts, exclusion_rule = load_fonts()
 corpus_manager = CorpusGeneratorManager()
@@ -50,6 +50,9 @@ def generate_dataset(dataset_type: str, cnt: int):
         )
 
         if exclusion_rule(font):
+            print(f"Excluded font: {font.path}")
+            return
+        if font.path in runtime_exclusion_list:
             print(f"Excluded font: {font.path}")
             return
 
@@ -77,6 +80,7 @@ def generate_dataset(dataset_type: str, cnt: int):
                 return
             except UnqualifiedFontException as e:
                 print(f"SKIPPING Unqualified font: {e.font.path}")
+                runtime_exclusion_list.append(e.font.path)
                 with open(unqualified_log_file_name, "a+") as f:
                     f.write(f"{e.font.path}\n")
                 return
