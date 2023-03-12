@@ -31,6 +31,8 @@ test_cnt_cjk = int(test_cnt * cjk_ratio)
 dataset_path = "./dataset/font_img"
 os.makedirs(dataset_path, exist_ok=True)
 
+unqualified_log_file_name = f"unqualified_font_{time.time_ns()}.txt"
+
 
 fonts, exclusion_rule = load_fonts()
 corpus_manager = CorpusGeneratorManager()
@@ -75,7 +77,7 @@ def generate_dataset(dataset_type: str, cnt: int):
                 return
             except UnqualifiedFontException as e:
                 print(f"SKIPPING Unqualified font: {e.font.path}")
-                with open(f"unqualified_font_{time.time_ns()}.txt", "a") as f:
+                with open(unqualified_log_file_name, "a+") as f:
                     f.write(f"{e.font.path}\n")
                 return
             except Exception as _:
