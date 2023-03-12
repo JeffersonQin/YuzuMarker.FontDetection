@@ -169,6 +169,46 @@ dataset:
     - ./DynaFont（华康）/简体/ttf/华康简楷.ttf
     - ./DynaFont（华康）/简体/ttf/华康简综艺.ttf
     - ./DynaFont（华康）/简体/ttf/华康简黑.ttf
+    - ./DynaFont（华康）/繁体/港版/ttf/DFPYuanYuanDouYun-B5.TTF
+    - ./DynaFont（华康）/繁体/港版/ttf/DFFangYuanW7-B5 - DFPFangYuanW7-B5.TTF
+    - ./DynaFont（华康）/繁体/港版/ttf/DFGuYinMedium-B5 - DFPGuYinMedium-B5.TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康少女文字W6.TTF
+    - ./DynaFont（华康）/繁体/港版/ttf/華康少女文字W7(P).ttf
+    - ./DynaFont（华康）/繁体/港版/ttf/華康布丁體 - 華康布丁體(P).TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康旺旺體 - 華康旺旺體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康流葉體 - 華康流葉體(P).TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康海報體W12 - 華康海報體W12(P).TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康熊貓體 - 華康熊貓體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康特粗圓體.ttf
+    - ./DynaFont（华康）/繁体/港版/ttf/華康特粗明體.ttf
+    - ./DynaFont（华康）/繁体/港版/ttf/華康瘦金體 - 華康瘦金體(P).TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康綜藝體.TTF
+    - ./DynaFont（华康）/繁体/港版/ttf/華康行書體.TTF
+    - ./DynaFont（华康）/繁体/港版/ttf/華康香港標準宋體 - 華康香港標準宋體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康香港標準楷書 - 華康香港標準楷書(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/DFZongKaiW7-B5 - DFPZongKaiW7-B5.TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/MingLiU-ExtB - PMingLiU-ExtB - MingLiU_HKSCS-ExtB.ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷3D體01 - 華康乾隆行楷3D體01(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體01 - 華康乾隆行楷框線體01(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體02 - 華康乾隆行楷框線體02(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體03 - 華康乾隆行楷框線體03(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體04 - 華康乾隆行楷框線體04(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康仿宋月雲體 - 華康仿宋月雲體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康儷粗宋.TTF
+    - ./DynaFont（华康）/繁体/港版/ttf/華康儷雅宋.ttf
+    - ./DynaFont（华康）/繁体/港版/ttf/華康古印體.ttf
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷3D體01 - 華康周氏行楷3D體01(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體01 - 華康周氏行楷框線體01(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體02 - 華康周氏行楷框線體02(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體03 - 華康周氏行楷框線體03(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體04 - 華康周氏行楷框線體04(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康唐風隸 - 華康唐風隸(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康圓緣斗雲體 - 華康圓緣斗雲體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康圓體注音 - 華康圓體破音一 - 華康圓體破音二 - 華康圓體破音三.TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康墨字月雲體 - 華康墨字月雲體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/華康墨字體 - 華康墨字體(P).TTC
+    - ./DynaFont（华康）/繁体/港版/ttf/華康娃娃斗雲體 - 華康娃娃斗雲體(P).ttc
+    - ./DynaFont（华康）/繁体/港版/ttf/DFWeiBeiU-B5.TTF
     - ./Founder Type（方正）/韩文/方正朝文中圆.TTF
     - ./Founder Type（方正）/简繁/ttf/方正宋体S-超大字符集(SIP).TTF
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_503L.ttf
@@ -219,6 +259,11 @@ dataset:
     - ./其他/日文/Jiyukobo（字游工房）/假名/築地体一号太仮名.otf
     - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三十五ポイント仮名.otf
     - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三号太仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三号細仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体初号仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体前期五号仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体後期五号仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地活文舎五号仮名.otf
     - ./其他/日文/TypeBank/假名/RoVenetian-Book.otf
     - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8.ttf
     - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9 - HGPHeiseiMinchotaiW9 - HGSHeiseiMinchotaiW9.ttc
