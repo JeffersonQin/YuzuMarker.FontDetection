@@ -31,10 +31,15 @@ def random_char(length: int, font: DSFont, char_set: str) -> str:
     assert len(char_set) > 0
 
     ret = ""
+    fail_cnt = 0
     while len(ret) < length:
         char = char_set[random.randint(0, len(char_set) - 1)]
         if char_in_font(char, font.path):
             ret += char
+        else:
+            fail_cnt += 1
+            if fail_cnt > 1000:
+                raise Exception(f"Too many fail for font: {font.path}")
 
     return ret
 
