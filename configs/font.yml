@@ -34,8 +34,10 @@ dataset:
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_513B.ttf
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 513B.ttf
     - ./其他/日文/CRＣ＆Ｇ半古印 - CRPＣ＆Ｇ半古印.TTC
+    - ./其他/日文/FGＣ＆Ｇ半古印 - FGPＣ＆Ｇ半古印.TTC
     - ./其他/日文/FGCCHGW3.TTC
     - ./其他/日文/Jiyukobo（字游工房）/假名/築地体一号太仮名.otf
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三十五ポイント仮名.otf
   specs:
     - path:
         - ./Adobe/CJK
