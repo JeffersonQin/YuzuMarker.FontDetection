@@ -70,6 +70,105 @@ dataset:
     - ./Arphic（文鼎）/繁体/文鼎霹靂體.ttf
     - ./Arphic（文鼎）/繁体/文鼎顏楷九宮體.ttf
     - ./Arphic（文鼎）/繁体/文鼎ＰＯＰ－２.TTF
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCAiG-W5 - DCPAiG-W5 - DCGAiG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCAiLineG-W5 - DCPAiLineG-W5 - DCGAiLineG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCAiShadowG-W5 - DCPAiShadowG-W5 - DCGAiShadowG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCCrystalG-W5 - DCPCrystalG-W5 - DCGCrystalG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCHigeMojiG-W5 - DCPHigeMojiG-W5 - DCGHigeMojiG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCHoLeiShoG-W3 - DCPHoLeiShoG-W3 - DCGHoLeiShoG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCInlineG-W5 - DCPInlineG-W5 - DCGInlineG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCKagoMojiG-W12 - DCPKagoMojiG-W12 - DCGKagoMojiG-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCLeiKaiShoG-W5 - DCPLeiKaiShoG-W5 - DCGLeiKaiShoG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DCYoseMojiG-W7 - DCPYoseMojiG-W7 - DCGYoseMojiG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFBrushRDG-W12 - DFPBrushRDG-W12 - DFGBrushRDG-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFBrushRDG-W7 - DFPBrushRDG-W7 - DFGBrushRDG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFBrushSQG-W12 - DFPBrushSQG-W12 - DFGBrushSQG-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFBrushSQG-W5 - DFPBrushSQG-W5 - DFGBrushSQG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFBrushSQG-W9 - DFPBrushSQG-W9 - DFGBrushSQG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFCraftDouG-W3 - DFPCraftDouG-W3 - DFGCraftDouG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFCraftSumiG-W9 - DFPCraftSumiG-W9 - DFGCraftSumiG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFCraftYuG-W5 - DFPCraftYuG-W5 - DFGCraftYuG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFCraftYuG-W7 - DFPCraftYuG-W7 - DFGCraftYuG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFFreeRyuSenG-Lt - DFPFreeRyuSenG-Lt - DFGFreeRyuSenG-Lt.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFFreeRyuSenG-W3 - DFPFreeRyuSenG-W3 - DFGFreeRyuSenG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFFreeRyuyouG-Lt - DFPFreeRyuyouG-Lt - DFGFreeRyuyouG-Lt.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFFuunG-W12 - DFPFuunG-W12 - DFGFuunG-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFFuunG-W7 - DFPFuunG-W7 - DFGFuunG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGanShinKeiG-W7 - DFPGanShinKeiG-W7 - DFGGanShinKeiG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGiHiG-W7 - DFPGiHiG-W7 - DFGGiHiG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGothicG-EB - DFPGothicG-EB - DFGGothicG-EB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGothicG-SU - DFPGothicG-SU - DFGGothicG-SU.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGothicG-UB - DFPGothicG-UB - DFGGothicG-UB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGothicPG-W2 - DFPGothicPG-W2 - DFGGothicPG-W2.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGothicPG-W3 - DFPGothicPG-W3 - DFGGothicPG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFGothicPG-W5 - DFPGothicPG-W5 - DFGGothicPG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSGothicG-W3 - DFPHSGothicG-W3 - DFGHSGothicG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSGothicG-W7 - DFPHSGothicG-W7 - DFGHSGothicG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSGothicG-W9 - DFPHSGothicG-W9 - DFGHSGothicG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSMaruGothicG-W4 - DFPHSMaruGothicG-W4 - DFGHSMaruGothicG-W4.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSMinchoG-W5 - DFPHSMinchoG-W5 - DFGHSMinchoG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSMinchoG-W7 - DFPHSMinchoG-W7 - DFGHSMinchoG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFHSMinchoG-W9 - DFPHSMinchoG-W9 - DFGHSMinchoG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKaiShoG-Bd - DFPKaiShoG-Bd - DFGKaiShoG-Bd.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKaiShoG-Lt - DFPKaiShoG-Lt - DFGKaiShoG-Lt.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKaiShoG-SB - DFPKaiShoG-SB - DFGKaiShoG-SB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKaiShoG-SU - DFPKaiShoG-SU - DFGKaiShoG-SU.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKaiShoG-UB - DFPKaiShoG-UB - DFGKaiShoG-UB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKanTeiRyuG-XB - DFPKanTeiRyuG-XB - DFGKanTeiRyuG-XB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKinBunG-W3 - DFPKinBunG-W3 - DFGKinBunG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKoInG-W4 - DFPKoInG-W4 - DFGKoInG-W4.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFKyoKaShoG-W3 - DFPKyoKaShoG-W3 - DFGKyoKaShoG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFLeiGaSoG-W9 - DFPLeiGaSoG-W9 - DFGLeiGaSoG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruGothicG-Md - DFPMaruGothicG-Md - DFGMaruGothicG-Md.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruGothicG-SB - DFPMaruGothicG-SB - DFGMaruGothicG-SB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruGothicG-SU - DFPMaruGothicG-SU - DFGMaruGothicG-SU.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruGothicG-UB - DFPMaruGothicG-UB - DFGMaruGothicG-UB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruMojiG-SL - DFPMaruMojiG-SL - DFGMaruMojiG-SL.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruMojiG-W3 - DFPMaruMojiG-W3 - DFGMaruMojiG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruMojiG-W7 - DFPMaruMojiG-W7 - DFGMaruMojiG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMaruMojiG-W9 - DFPMaruMojiG-W9 - DFGMaruMojiG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMinchoG-SU - DFPMinchoG-SU - DFGMinchoG-SU.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMinchoG-UB - DFPMinchoG-UB - DFGMinchoG-UB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMinchoPG-W3 - DFPMinchoPG-W3 - DFGMinchoPG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFMinchoPG-W5 - DFPMinchoPG-W5 - DFGMinchoPG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFOYoJunG-W5 - DFPOYoJunG-W5 - DFGOYoJunG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP1G-SB - DFPPOP1G-SB - DFGPOP1G-SB.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP1G-W12 - DFPPOP1G-W12 - DFGPOP1G-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP1G-W3 - DFPPOP1G-W3 - DFGPOP1G-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP1G-W5 - DFPPOP1G-W5 - DFGPOP1G-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP1G-W9 - DFPPOP1G-W9 - DFGPOP1G-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP2G-W12 - DFPPOP2G-W12 - DFGPOP2G-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOP2G-W9 - DFPPOP2G-W9 - DFGPOP2G-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOPClipG-W7 - DFPPOPClipG-W7 - DFGPOPClipG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOPCornG-W12 - DFPPOPCornG-W12 - DFGPOPCornG-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOPCornG-W7 - DFPPOPCornG-W7 - DFGPOPCornG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFPOPStencilG-W7 - DFPPOPStencilG-W7 - DFGPOPStencilG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFRuLeiAG-W5 - DFPRuLeiAG-W5 - DFGRuLeiAG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFRuLeiAG-W9 - DFPRuLeiAG-W9 - DFGRuLeiAG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFRuLeiG-W5 - DFPRuLeiG-W5 - DFGRuLeiG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFRuLeiG-W7 - DFPRuLeiG-W7 - DFGRuLeiG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFRyuSekiG-W9 - DFPRyuSekiG-W9 - DFGRyuSekiG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSMGothicG-Lt - DFPSMGothicG-Lt - DFGSMGothicG-Lt.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSNGyoShoG-W5 - DFPSNGyoShoG-W5 - DFGSNGyoShoG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFShinTenG-W5 - DFPShinTenG-W5 - DFGShinTenG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFShinTenG-W7 - DFPShinTenG-W7 - DFGShinTenG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSinSoG-W3 - DFPSinSoG-W3 - DFGSinSoG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSoGeiG-W5 - DFPSoGeiG-W5 - DFGSoGeiG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSoGeiG-W7 - DFPSoGeiG-W7 - DFGSoGeiG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSoGeiG-W9 - DFPSoGeiG-W9 - DFGSoGeiG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSoKaiShoG-W7 - DFPSoKaiShoG-W7 - DFGSoKaiShoG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSoKingG-W3 - DFPSoKingG-W3 - DFGSoKingG-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFSumoG-W12 - DFPSumoG-W12 - DFGSumoG-W12.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFTFLeiShoG-W5 - DFPTFLeiShoG-W5 - DFGTFLeiShoG-W5.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFTFLeiShoG-W7 - DFPTFLeiShoG-W7 - DFGTFLeiShoG-W7.ttc
+    - ./DynaFont（华康）/日文/ttf/ビブロス外字/DFTFLeiShoG-W9 - DFPTFLeiShoG-W9 - DFGTFLeiShoG-W9.ttc
+    - ./DynaFont（华康）/日文/ttf/Std/デザイン書体（创意字体）/DFKyoKaShoR-W3 - DFPKyoKaShoR-W3 - DFGKyoKaShoR-W3.ttc
+    - ./DynaFont（华康）/日文/ttf/Std/デザイン書体（创意字体）/DFKyoKaShoR-W4 - DFPKyoKaShoR-W4 - DFGKyoKaShoR-W4.ttc
+    - ./DynaFont（华康）/简体/ttf/华康简宋.ttf
+    - ./DynaFont（华康）/简体/ttf/华康简标题宋.ttf
+    - ./DynaFont（华康）/简体/ttf/华康简楷.ttf
+    - ./DynaFont（华康）/简体/ttf/华康简综艺.ttf
+    - ./DynaFont（华康）/简体/ttf/华康简黑.ttf
     - ./Founder Type（方正）/韩文/方正朝文中圆.TTF
     - ./Founder Type（方正）/简繁/ttf/方正宋体S-超大字符集(SIP).TTF
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_503L.ttf
@@ -91,6 +190,29 @@ dataset:
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 512B.ttf
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_513B.ttf
     - ./Founder Type（方正）/简繁/ttf/方正悠黑_GBK 513B.ttf
+    - ./Microsoft（微软）/简体/微软简中圆.TTF
+    - ./Microsoft（微软）/简体/微软简仿宋.TTF
+    - ./Microsoft（微软）/简体/微软简标宋.TTF
+    - ./Microsoft（微软）/简体/微软简楷体.TTF
+    - ./Microsoft（微软）/简体/微软简粗黑.TTF
+    - ./Microsoft（微软）/简体/微软简综艺.TTF
+    - ./Microsoft（微软）/简体/微软简老宋.TTF
+    - ./Microsoft（微软）/简体/微软简行楷.TTF
+    - ./Microsoft（微软）/简体/微软简隶书.TTF
+    - ./Microsoft（微软）/简体/微软简魏碑.TTF
+    - ./Microsoft（微软）/繁体/微软繁仿宋.TTF
+    - ./Microsoft（微软）/繁体/微软繁宋体.TTF
+    - ./Microsoft（微软）/繁体/微软繁标宋.TTF
+    - ./Microsoft（微软）/繁体/微软繁楷体.TTF
+    - ./Microsoft（微软）/繁体/微软繁琥珀.TTF
+    - ./Microsoft（微软）/繁体/微软繁粗圆.TTF
+    - ./Microsoft（微软）/繁体/微软繁线体.TTF
+    - ./Microsoft（微软）/繁体/微软繁细圆.TTF
+    - ./Microsoft（微软）/繁体/微软繁综艺.TTF
+    - ./Microsoft（微软）/繁体/微软繁超黑.TTF
+    - ./Microsoft（微软）/繁体/微软繁隶书.TTF
+    - ./Microsoft（微软）/繁体/微软繁魏碑.TTF
+    - ./Microsoft（微软）/繁体/微软繁黑体.TTF
     - ./其他/日文/CRＣ＆Ｇ半古印 - CRPＣ＆Ｇ半古印.TTC
     - ./其他/日文/FGＣ＆Ｇ半古印 - FGPＣ＆Ｇ半古印.TTC
     - ./其他/日文/FGCCHGW3.TTC
