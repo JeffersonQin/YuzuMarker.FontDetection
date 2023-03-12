@@ -49,6 +49,7 @@ def random_char(length: int, font: DSFont, char_set: str) -> str:
             ret += char
         else:
             fail_cnt += 1
+            print(f"FAILING {fail_cnt} for {font.path}")
             if fail_cnt > 2000:
                 raise UnqualifiedFontException(font)
 
