@@ -44,6 +44,18 @@ The generated dataset will be saved in the `dataset/font_img` directory.
 
 Note that `batch_generate_script_cmd_32.bat` and `batch_generate_script_cmd_64.bat` are batch scripts for Windows that can be used to generate the dataset in parallel with 32 partitions and 64 partitions.
 
+### Final Check
+
+Since the task might be terminated unexpectedly or deliberately by user. The script has a caching mechanism to avoid re-generating the same image.
+
+In this case, the script might not be able to detect corruption in cache (might be caused by terminating when writing to files) during this task, thus we also provides a script checking the generated dataset and remove the corrupted images and labels.
+
+```bash
+python font_ds_detect_broken.py
+```
+
+After running the script, you might want to rerun the generation script to fill up the holes of the removed corrupted files.
+
 ### (Optional) Linux Cluster Generation Walkthrough
 
 If you would like to run the generation script on linux clusters, we also provides the environment setup script `linux_venv_setup.sh`.
