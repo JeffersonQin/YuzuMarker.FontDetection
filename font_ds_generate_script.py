@@ -5,8 +5,8 @@ import os
 import concurrent.futures
 from tqdm import tqdm
 import time
-from font_dataset.font import load_fonts
-from font_dataset.layout import generate_font_image
+from font_dataset.font import load_fonts, DSFont
+from font_dataset.layout import generate_font_image, TextSizeTooSmallException
 from font_dataset.text import CorpusGeneratorManager, UnqualifiedFontException
 from font_dataset.background import background_image_generator
 
@@ -39,9 +39,27 @@ corpus_manager = CorpusGeneratorManager()
 images = background_image_generator()
 
 
+def add_exclusion(font: DSFont, reason: str, dataset_base_dir: str, i: int, j: int):
+    print(f"Excluded font: {font.path}, reason: {reason}")
+    runtime_exclusion_list.append(font.path)
+    with open(unqualified_log_file_name, "a+") as f:
+        f.write(f"{font.path} # {reason}\n")
+    for i in range(j + 1):
+        image_file_name = f"font_{i}_img_{j}.jpg"
+        label_file_name = f"font_{i}_img_{j}.bin"
+
+        image_file_path = os.path.join(dataset_base_dir, image_file_name)
+        label_file_path = os.path.join(dataset_base_dir, label_file_name)
+
+        if os.path.exists(image_file_path):
+            os.remove(image_file_path)
+        if os.path.exists(label_file_path):
+            os.remove(label_file_path)
+
+
 def generate_dataset(dataset_type: str, cnt: int):
-    dataset_bath_dir = os.path.join(dataset_path, dataset_type)
-    os.makedirs(dataset_bath_dir, exist_ok=True)
+    dataset_base_dir = os.path.join(dataset_path, dataset_type)
+    os.makedirs(dataset_base_dir, exist_ok=True)
 
     def _generate_single(args):
         i, j, font = args
@@ -61,8 +79,8 @@ def generate_dataset(dataset_type: str, cnt: int):
                 image_file_name = f"font_{i}_img_{j}.jpg"
                 label_file_name = f"font_{i}_img_{j}.bin"
 
-                image_file_path = os.path.join(dataset_bath_dir, image_file_name)
-                label_file_path = os.path.join(dataset_bath_dir, label_file_name)
+                image_file_path = os.path.join(dataset_base_dir, image_file_name)
+                label_file_path = os.path.join(dataset_base_dir, label_file_name)
 
                 # detect cache
                 if os.path.exists(image_file_path) and os.path.exists(label_file_path):
@@ -79,14 +97,16 @@ def generate_dataset(dataset_type: str, cnt: int):
                 pickle.dump(label, open(label_file_path, "wb"))
                 return
             except UnqualifiedFontException as e:
-                print(f"SKIPPING Unqualified font: {e.font.path}")
-                runtime_exclusion_list.append(e.font.path)
-                with open(unqualified_log_file_name, "a+") as f:
-                    f.write(f"{e.font.path}\n")
+                traceback.print_exc()
+                add_exclusion(font, "unqualified font", dataset_base_dir, i, j)
                 return
-            except Exception as _:
+            except TextSizeTooSmallException as e:
                 traceback.print_exc()
                 continue
+            except Exception as e:
+                traceback.print_exc()
+                add_exclusion(font, f"other: {repr(e)}", dataset_base_dir, i, j)
+                return
 
     work_list = []
 

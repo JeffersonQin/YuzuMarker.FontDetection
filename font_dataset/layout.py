@@ -1,6 +1,6 @@
 from typing import Tuple
 
-__all__ = ["generate_font_image"]
+__all__ = ["generate_font_image", "TextSizeTooSmallException"]
 
 
 epislon = 1e-6
@@ -237,6 +237,11 @@ def RGB2RGBA(color):
     return color + (255,)
 
 
+class TextSizeTooSmallException(Exception):
+    def __init__(self):
+        super().__init__(f"Text Size Too Small")
+
+
 def generate_font_image(
     img_path: str, font: DSFont, corpus_manager: CorpusGeneratorManager
 ) -> Tuple[Image.Image, FontLabel]:
@@ -368,7 +373,7 @@ def generate_font_image(
     text_size = int(render_calculation_size * render_height / render_calculation_height)
 
     if text_size < text_size_min:
-        raise ValueError("text size is too small")
+        raise TextSizeTooSmallException()
 
     render_width_no_rotation = int(
         render_calculation_width_no_rotation / render_calculation_height * render_height
