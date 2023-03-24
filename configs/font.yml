@@ -246,6 +246,208 @@ dataset:
     - ./Microsoft（微软）/繁体/微软繁隶书.TTF # unqualified font
     - ./Microsoft（微软）/繁体/微软繁魏碑.TTF # unqualified font
     - ./Microsoft（微软）/繁体/微软繁黑体.TTF # unqualified font
+    - ./其他/简体/汉鼎简新艺体.TTF # unqualified font
+    - ./其他/简体/汉鼎简粗圆.TTF # unqualified font
+    - ./其他/简体/特粗黑体.ttf # unqualified font
+    - ./其他/简繁/SimSun-ExtB.ttf # unqualified font
+    - ./其他/繁体/中國龍古印體.TTF # unqualified font
+    - ./其他/繁体/中國龍瑩篆體.TTF # unqualified font
+    - ./其他/繁体/全真方新書.ttf # unqualified font
+    - ./其他/繁体/和平粗圓.ttf # unqualified font
+    - ./其他/繁体/王漢宗拓仿黑體.ttf # other: OSError('invalid composite glyph',)
+    - ./其他/繁体/超研澤中圓.ttf # unqualified font
+    - ./其他/繁体/超研澤中特圓.ttf # unqualified font
+    - ./其他/繁体/超研澤中鋼筆行楷.ttf # unqualified font
+    - ./其他/繁体/超研澤勘亭流.TTF # unqualified font
+    - ./其他/繁体/超研澤粗圓.ttf # unqualified font
+    - ./其他/繁体/超研澤細行楷.ttf # unqualified font
+    - ./其他/繁体/超研澤超明.ttf # unqualified font
+    - ./其他/日文/ふみゴシック.ttf # other: ZeroDivisionError('division by zero',)
+    - ./其他/日文/恋文ペン字.TTF # unqualified font
+    - ./其他/日文/祥南行書体.TTF # unqualified font
+    - ./其他/日文/CRＣ＆Ｇ半古印 - CRPＣ＆Ｇ半古印.TTC # unqualified font
+    - ./其他/日文/FGCCHGW3.TTC # unqualified font
+    - ./其他/日文/FGＣ＆Ｇ半古印 - FGPＣ＆Ｇ半古印.TTC # unqualified font
+    - ./其他/日文/Naraku_Moji.OTF # unqualified font
+    - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8L.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGAkaneHeiseiMarugoW8S.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGArisawaKaishotai - HGPArisawaKaishotai - HGSArisawaKaishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGArisawaKaishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGBouquet - HGPBouquet - HGSBouquet.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGBouquet.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGEdomojiKanteiryu - HGPEdomojiKanteiryu - HGSEdomojiKanteiryu.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGGyokoku - HGPGyokoku - HGSGyokoku.TTC # unqualified font
+    - ./其他/日文/RICOH（理光）/HGGyoshotai - HGPGyoshotai - HGSGyoshotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHagoromoB.TTF # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHagoromoE.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHagoromoL.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHagoromoM.TTF # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHakushuFutoKaishotai - HGPHakushuFutoKaishotai - HGSHakushuFutoKaishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHakushuGokubutoKaishotai - HGPHakushuGokubutoKaishotai - HGSHakushuGokubutoKaishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHakushuGokubutoKaishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHakushuGyososhotai - HGPHakushuGyososhotai - HGSHakushuGyososhotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHakushuPenkaishotai - HGPHakushuPenkaishotai - HGSHakushuPenkaishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHakushuPenkaishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHanKointai - HGPHanKointai - HGSHanKointai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugoW9L.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugoW9S.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW3 - HGPHeiseiKakugothictaiW3 - HGSHeiseiKakugothictaiW3.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW3.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW5 - HGPHeiseiKakugothictaiW5 - HGSHeiseiKakugothictaiW5.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW7 - HGPHeiseiKakugothictaiW7 - HGSHeiseiKakugothictaiW7.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW7.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiKakugothictaiW9 - HGPHeiseiKakugothictaiW9 - HGSHeiseiKakugothictaiW9.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW4 - HGPHeiseiMarugothictaiW4 - HGSHeiseiMarugothictaiW4.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8 - HGPHeiseiMarugothictaiW8 - HGSHeiseiMarugothictaiW8.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8L.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMarugothictaiW8S.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW3 - HGPHeiseiMinchotaiW3 - HGSHeiseiMinchotaiW3.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9 - HGPHeiseiMinchotaiW9 - HGSHeiseiMinchotaiW9.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9L.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHeiseiMinchotaiW9S.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGHigemoji - HGPHigemoji - HGSHigemoji.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGKasaneKakugothicH - HGPKasaneKakugothicH - HGSKasaneKakugothicH.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGKyokashotai - HGPKyokashotai - HGSKyokashotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGKyokusuiE.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGKyokusuiM.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGOzawaKaishotai - HGPOzawaKaishotai - HGSOzawaKaishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGOzawaKaishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGPrettyFrankH.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGPrettyFrankHL.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGPrettyFrankHS.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGReithic.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSeikaishotai - HGPSeikaishotai - HGSSeikaishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiIorishotai - HGPSoeiIorishotai - HGSSoeiIorishotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiIorishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiKakugothicUB - HGPSoeiKakugothicUB - HGSSoeiKakugothicUB.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiKakugothicUB.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiKakupoptai - HGPSoeiKakupoptai - HGSSoeiKakupoptai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiMarupoptai - HGPSoeiMarupoptai - HGSSoeiMarupoptai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiPenjitai - HGPSoeiPenjitai - HGSSoeiPenjitai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSoeiPresenceEB - HGPSoeiPresenceEB - HGSSoeiPresenceEB.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGSyounanGyoshotai - HGPSyounanGyoshotai - HGSSyounanGyoshotai.ttc # unqualified font
+    - ./其他/日文/RICOH（理光）/HGTakahashiFudekaishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HGTakahashiReishotai.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG創英丸ﾎﾟｯﾌﾟ体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG創英角ﾎﾟｯﾌﾟ体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG創英ﾌﾟﾚｾﾞﾝｽEB.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG創英ﾍﾟﾝ字体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG千葉ﾍﾟﾝ字体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG半古印体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG平成丸ｺﾞｼｯｸ体W4.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG平成明朝体W3.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG平成明朝体W9.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG平成角ｺﾞｼｯｸ体W5.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG平成角ｺﾞｼｯｸ体W9.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG教科書体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG正楷書体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG江戸文字勘亭流.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG白洲太楷書体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG白洲行草書体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG祥南行書体.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG行刻.ttf # unqualified font
+    - ./其他/日文/RICOH（理光）/HG行書体.ttf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBaskerville-Book.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookItalic.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookItalicOsF.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookSC.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBaskerville-BookVertical.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBodoni-Book.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookItalic.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookItalicOsF.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookSC.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoBodoni-BookVertical.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoGaramond-Book.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookItalic.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookItalicOsF.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookSC.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoGaramond-BookVertical.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-B.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-E.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-GB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-GE.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-GM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-GU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-L.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-M.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-MB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-ME.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-MM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKDStd-MU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-B.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-E.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-GB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-GE.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-GM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-GU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-L.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-M.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-MB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-ME.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-MM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoKMStd-MU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-B.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-E.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-GB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-GE.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-GM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-GU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-L.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-M.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-MB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-ME.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-MM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoRKStd-MU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-B.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-E.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-GB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-GE.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-GM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-GU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-L.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-M.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-MB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-ME.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-MM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoTJStd-MU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoVenetian-Book.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookItalic.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookItalicOsF.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookSC.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoVenetian-BookVertical.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-B.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-E.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-GB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-GE.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-GM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-GU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-L.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-M.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-MB.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-ME.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-MM.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/RoYNStd-MU.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Bold.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Heavy.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Medium.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoItalic-Regular.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoKigo-M.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoKigo-R.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Bold.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Heavy.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Medium.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoLatin-Regular.otf # unqualified font
+    - ./其他/日文/TypeBank/假名/UDDigiKyoWriting-Regular.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体一号太仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三十五ポイント仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三号太仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体三号細仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体初号仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体前期五号仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地体後期五号仮名.otf # unqualified font
+    - ./其他/日文/Jiyukobo（字游工房）/假名/築地活文舎五号仮名.otf # unqualified font
   specs:
     - path:
         - ./Adobe/CJK
