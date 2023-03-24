@@ -105,7 +105,7 @@ class FontDetector(ptl.LightningModule):
         X, y = batch
         y_hat = self.forward(X)
         loss = self.loss(y_hat, y)
-        self.log("train_loss", loss, prog_bar=True)
+        self.log("train_loss", loss, prog_bar=True, sync_dist=True)
         return {"loss": loss, "pred": y_hat, "target": y}
 
     def training_step_end(self, outputs):
@@ -114,12 +114,14 @@ class FontDetector(ptl.LightningModule):
         self.log(
             "train_font_accur",
             self.font_accur_train(y_hat[..., : config.FONT_COUNT], y[..., 0]),
+            sync_dist=True,
         )
         self.log(
             "train_direction_accur",
             self.direction_accur_train(
                 y_hat[..., config.FONT_COUNT : config.FONT_COUNT + 2], y[..., 1]
             ),
+            sync_dist=True,
         )
 
     def on_train_epoch_end(self) -> None:
@@ -132,7 +134,7 @@ class FontDetector(ptl.LightningModule):
         X, y = batch
         y_hat = self.forward(X)
         loss = self.loss(y_hat, y)
-        self.log("val_loss", loss, prog_bar=True)
+        self.log("val_loss", loss, prog_bar=True, sync_dist=True)
         self.font_accur_val.update(y_hat[..., : config.FONT_COUNT], y[..., 0])
         self.direction_accur_val.update(
             y_hat[..., config.FONT_COUNT : config.FONT_COUNT + 2], y[..., 1]
@@ -140,8 +142,10 @@ class FontDetector(ptl.LightningModule):
         return {"loss": loss, "pred": y_hat, "target": y}
 
     def on_validation_epoch_end(self):
-        self.log("val_font_accur", self.font_accur_val.compute())
-        self.log("val_direction_accur", self.direction_accur_val.compute())
+        self.log("val_font_accur", self.font_accur_val.compute(), sync_dist=True)
+        self.log(
+            "val_direction_accur", self.direction_accur_val.compute(), sync_dist=True
+        )
         self.font_accur_val.reset()
         self.direction_accur_val.reset()
 
