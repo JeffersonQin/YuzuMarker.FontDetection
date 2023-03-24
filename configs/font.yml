@@ -209,6 +209,43 @@ dataset:
     - ./DynaFont（华康）/繁体/港版/ttf/DFPYuanYuanDouYun-B5.TTF # unqualified font
     - ./DynaFont（华康）/繁体/港版/ttf/DFFangYuanW7-B5 - DFPFangYuanW7-B5.TTF # unqualified font
     - ./Founder Type（方正）/简体/ttf/方正字迹-建刚圆润简体.TTF # other: OSError('array allocation size too large',)
+    - ./Founder Type（方正）/繁体/ttf/方正字迹-建剛圓潤繁體U.TTF # other: OSError('array allocation size too large',)
+    - ./Founder Type（方正）/繁体/ttf/方正字迹-顏世舉隸書體 繁 U.TTF # other: OSError('array allocation size too large',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_503L.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_504L.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_506L.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_508R.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_509R.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_510M.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_511M.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_512B.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正悠黑_513B.ttf # other: OSError('invalid reference',)
+    - ./Founder Type（方正）/简繁/ttf/方正宋体S-超大字符集(SIP).TTF # unqualified font
+    - ./Founder Type（方正）/韩文/方正朝文中圆.TTF # other: OSError('nested DEFS',)
+    - ./Hanyi Fonts（汉仪）/简繁/伪GBK/汉仪闫锐敏行楷W.ttf # other: OSError('invalid outline',)
+    - ./Microsoft（微软）/简体/微软简中圆.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简仿宋.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简标宋.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简楷体.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简粗黑.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简综艺.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简老宋.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简行楷.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简隶书.TTF # unqualified font
+    - ./Microsoft（微软）/简体/微软简魏碑.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁仿宋.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁宋体.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁标宋.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁楷体.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁琥珀.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁粗圆.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁线体.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁细圆.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁综艺.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁超黑.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁隶书.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁魏碑.TTF # unqualified font
+    - ./Microsoft（微软）/繁体/微软繁黑体.TTF # unqualified font
   specs:
     - path:
         - ./Adobe/CJK
