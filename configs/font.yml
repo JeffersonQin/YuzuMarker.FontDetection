@@ -169,6 +169,46 @@ dataset:
     - ./DynaFont（华康）/简体/ttf/华康简楷.ttf # unqualified font
     - ./DynaFont（华康）/简体/ttf/华康简综艺.ttf # unqualified font
     - ./DynaFont（华康）/简体/ttf/华康简黑.ttf # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/DFZongKaiW7-B5 - DFPZongKaiW7-B5.TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/MingLiU-ExtB - PMingLiU-ExtB - MingLiU_HKSCS-ExtB.ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷3D體01 - 華康乾隆行楷3D體01(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體01 - 華康乾隆行楷框線體01(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體02 - 華康乾隆行楷框線體02(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體03 - 華康乾隆行楷框線體03(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康乾隆行楷框線體04 - 華康乾隆行楷框線體04(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康仿宋月雲體 - 華康仿宋月雲體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康儷粗宋.TTF # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康儷雅宋.ttf # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康古印體.ttf # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷3D體01 - 華康周氏行楷3D體01(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體01 - 華康周氏行楷框線體01(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體02 - 華康周氏行楷框線體02(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體03 - 華康周氏行楷框線體03(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康周氏行楷框線體04 - 華康周氏行楷框線體04(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康唐風隸 - 華康唐風隸(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康圓緣斗雲體 - 華康圓緣斗雲體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康圓體注音 - 華康圓體破音一 - 華康圓體破音二 - 華康圓體破音三.TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康墨字月雲體 - 華康墨字月雲體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康墨字體 - 華康墨字體(P).TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康娃娃斗雲體 - 華康娃娃斗雲體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康少女文字W6.TTF # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康少女文字W7(P).ttf # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康布丁體 - 華康布丁體(P).TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康旺旺體 - 華康旺旺體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康流葉體 - 華康流葉體(P).TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康海報體W12 - 華康海報體W12(P).TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康熊貓體 - 華康熊貓體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康特粗圓體.ttf # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康特粗明體.ttf # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康瘦金體 - 華康瘦金體(P).TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康綜藝體.TTF # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康行書體.TTF # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康香港標準宋體 - 華康香港標準宋體(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/華康香港標準楷書 - 華康香港標準楷書(P).ttc # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/DFGuYinMedium-B5 - DFPGuYinMedium-B5.TTC # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/DFPYuanYuanDouYun-B5.TTF # unqualified font
+    - ./DynaFont（华康）/繁体/港版/ttf/DFFangYuanW7-B5 - DFPFangYuanW7-B5.TTF # unqualified font
+    - ./Founder Type（方正）/简体/ttf/方正字迹-建刚圆润简体.TTF # other: OSError('array allocation size too large',)
   specs:
     - path:
         - ./Adobe/CJK
