@@ -13,7 +13,7 @@ import pytorch_lightning as ptl
 class ResNet18Regressor(nn.Module):
     def __init__(self):
         super().__init__()
-        self.model = torchvision.models.resnet18(pretrained=False)
+        self.model = torchvision.models.resnet18(weights=False)
         self.model.fc = nn.Linear(512, config.FONT_COUNT + 12)
 
     def forward(self, X):
