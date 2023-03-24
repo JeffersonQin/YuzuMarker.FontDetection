@@ -122,7 +122,7 @@ class FontDetector(ptl.LightningModule):
             ),
         )
 
-    def training_epoch_end(self, outputs) -> None:
+    def on_train_epoch_end(self) -> None:
         self.font_accur_train.reset()
         self.direction_accur_train.reset()
 
@@ -139,7 +139,7 @@ class FontDetector(ptl.LightningModule):
         )
         return {"loss": loss, "pred": y_hat, "target": y}
 
-    def validation_epoch_end(self, outputs):
+    def on_validation_epoch_end(self):
         self.log("val_font_accur", self.font_accur_val.compute())
         self.log("val_direction_accur", self.direction_accur_val.compute())
         self.font_accur_val.reset()
