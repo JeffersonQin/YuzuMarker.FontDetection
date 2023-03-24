@@ -56,6 +56,7 @@ trainer = ptl.Trainer(
     enable_checkpointing=True,
     log_every_n_steps=log_every_n_steps,
     strategy=strategy,
+    deterministic=True,
 )
 
 model = ResNet18Regressor()
