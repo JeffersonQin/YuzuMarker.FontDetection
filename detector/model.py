@@ -125,6 +125,10 @@ class FontDetector(ptl.LightningModule):
         )
 
     def on_train_epoch_end(self) -> None:
+        self.log("train_font_accur", self.font_accur_train.compute(), sync_dist=True)
+        self.log(
+            "train_direction_accur", self.direction_accur_train.compute(), sync_dist=True
+        )
         self.font_accur_train.reset()
         self.direction_accur_train.reset()
 
