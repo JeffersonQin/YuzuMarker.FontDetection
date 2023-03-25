@@ -47,7 +47,7 @@ class FontDataset(Dataset):
             out[8] = label.stroke_color[1] / 255.0
             out[9] = label.stroke_color[2] / 255.0
         else:
-            out[7:10] = 0.5
+            out[7:10] = out[2:5]
         out[10] = label.line_spacing / label.image_width
         out[11] = label.angle / 180.0 + 0.5
 
