@@ -31,6 +31,7 @@ lambda_direction = 0.5
 lambda_regression = 1.0
 
 regression_use_tanh = True
+augmentation = True
 
 num_warmup_epochs = 1
 num_epochs = 100
@@ -47,6 +48,7 @@ data_module = FontDataModule(
     val_shuffle=False,
     test_shuffle=False,
     regression_use_tanh=regression_use_tanh,
+    train_transforms=augmentation,
 )
 
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs
