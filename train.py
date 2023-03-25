@@ -24,7 +24,7 @@ lambda_font = 2.0
 lambda_direction = 0.5
 lambda_regression = 1.0
 
-num_warmup_epochs = 10
+num_warmup_epochs = 1
 num_epochs = 100
 
 log_every_n_steps = 100
