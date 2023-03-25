@@ -91,6 +91,12 @@ class FontDetector(ptl.LightningModule):
         self.direction_accur_val = torchmetrics.Accuracy(
             task="multiclass", num_classes=2
         )
+        self.font_accur_test = torchmetrics.Accuracy(
+            task="multiclass", num_classes=config.FONT_COUNT
+        )
+        self.direction_accur_test = torchmetrics.Accuracy(
+            task="multiclass", num_classes=2
+        )
         self.lr = lr
         self.betas = betas
         self.num_warmup_iters = num_warmup_iters
@@ -106,11 +112,7 @@ class FontDetector(ptl.LightningModule):
         y_hat = self.forward(X)
         loss = self.loss(y_hat, y)
         self.log("train_loss", loss, prog_bar=True, sync_dist=True)
-        return {"loss": loss, "pred": y_hat, "target": y}
-
-    def training_step_end(self, outputs):
-        y_hat = outputs["pred"]
-        y = outputs["target"]
+        # accur
         self.log(
             "train_font_accur",
             self.font_accur_train(y_hat[..., : config.FONT_COUNT], y[..., 0]),
@@ -123,6 +125,7 @@ class FontDetector(ptl.LightningModule):
             ),
             sync_dist=True,
         )
+        return {"loss": loss}
 
     def on_train_epoch_end(self) -> None:
         self.log("train_font_accur", self.font_accur_train.compute(), sync_dist=True)
@@ -143,7 +146,7 @@ class FontDetector(ptl.LightningModule):
         self.direction_accur_val.update(
             y_hat[..., config.FONT_COUNT : config.FONT_COUNT + 2], y[..., 1]
         )
-        return {"loss": loss, "pred": y_hat, "target": y}
+        return {"loss": loss}
 
     def on_validation_epoch_end(self):
         self.log("val_font_accur", self.font_accur_val.compute(), sync_dist=True)
@@ -152,6 +155,25 @@ class FontDetector(ptl.LightningModule):
         )
         self.font_accur_val.reset()
         self.direction_accur_val.reset()
+
+    def test_step(self, batch: Tuple[torch.Tensor, torch.Tensor], batch_idx: int):
+        X, y = batch
+        y_hat = self.forward(X)
+        loss = self.loss(y_hat, y)
+        self.log("test_loss", loss, prog_bar=True, sync_dist=True)
+        self.font_accur_test.update(y_hat[..., : config.FONT_COUNT], y[..., 0])
+        self.direction_accur_test.update(
+            y_hat[..., config.FONT_COUNT : config.FONT_COUNT + 2], y[..., 1]
+        )
+        return {"loss": loss}
+
+    def on_test_epoch_end(self) -> None:
+        self.log("test_font_accur", self.font_accur_test.compute(), sync_dist=True)
+        self.log(
+            "test_direction_accur", self.direction_accur_test.compute(), sync_dist=True
+        )
+        self.font_accur_test.reset()
+        self.direction_accur_test.reset()
 
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(

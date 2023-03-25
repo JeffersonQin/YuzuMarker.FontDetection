@@ -73,3 +73,4 @@ detector = FontDetector(
 )
 
 trainer.fit(detector, datamodule=data_module)
+trainer.test(detector, datamodule=data_module)
