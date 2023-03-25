@@ -1,3 +1,4 @@
+import argparse
 import os
 import torch
 import pytorch_lightning as ptl
@@ -10,7 +11,12 @@ from utils import get_current_tag
 
 torch.set_float32_matmul_precision('high')
 
-devices = [6, 7]
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--devices', nargs='*', type=int, default=[0])
+
+args = parser.parse_args()
+
+devices = args.devices
 
 final_batch_size = 128
 single_device_num_workers = 24
