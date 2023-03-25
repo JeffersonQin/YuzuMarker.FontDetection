@@ -24,6 +24,8 @@ lambda_font = 4.0
 lambda_direction = 0.5
 lambda_regression = 1.0
 
+regression_use_tanh = True
+
 num_warmup_epochs = 1
 num_epochs = 100
 
@@ -38,6 +40,7 @@ data_module = FontDataModule(
     train_shuffle=True,
     val_shuffle=False,
     test_shuffle=False,
+    regression_use_tanh=regression_use_tanh,
 )
 
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs
@@ -62,7 +65,7 @@ trainer = ptl.Trainer(
     deterministic=True,
 )
 
-model = ResNet18Regressor()
+model = ResNet18Regressor(regression_use_tanh=regression_use_tanh)
 
 detector = FontDetector(
     model=model,

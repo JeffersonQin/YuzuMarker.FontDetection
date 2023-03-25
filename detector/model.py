@@ -11,15 +11,19 @@ import pytorch_lightning as ptl
 
 
 class ResNet18Regressor(nn.Module):
-    def __init__(self):
+    def __init__(self, regression_use_tanh: bool=False):
         super().__init__()
         self.model = torchvision.models.resnet18(weights=False)
         self.model.fc = nn.Linear(512, config.FONT_COUNT + 12)
+        self.regression_use_tanh = regression_use_tanh
 
     def forward(self, X):
         X = self.model(X)
         # [0, 1]
-        X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].sigmoid()
+        if not self.regression_use_tanh:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].sigmoid()
+        else:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].tanh()
         return X
 
 

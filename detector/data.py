@@ -15,9 +15,10 @@ from PIL import Image
 
 
 class FontDataset(Dataset):
-    def __init__(self, path: str, config_path: str = "configs/font.yml"):
+    def __init__(self, path: str, config_path: str = "configs/font.yml", regression_use_tanh: bool=False):
         self.path = path
         self.fonts = load_font_with_exclusion(config_path)
+        self.regression_use_tanh = regression_use_tanh
 
         self.images = [
             os.path.join(path, f) for f in os.listdir(path) if f.endswith(".jpg")
@@ -50,6 +51,9 @@ class FontDataset(Dataset):
             out[7:10] = out[2:5]
         out[10] = label.line_spacing / label.image_width
         out[11] = label.angle / 180.0 + 0.5
+        
+        if self.regression_use_tanh:
+            out[2:12] = out[2:12] * 2 - 1
 
         return out
 
@@ -87,6 +91,7 @@ class FontDataModule(LightningDataModule):
         train_shuffle: bool = True,
         val_shuffle: bool = False,
         test_shuffle: bool = False,
+        regression_use_tanh: bool = False,
         **kwargs,
     ):
         super().__init__()
@@ -94,9 +99,9 @@ class FontDataModule(LightningDataModule):
         self.train_shuffle = train_shuffle
         self.val_shuffle = val_shuffle
         self.test_shuffle = test_shuffle
-        self.train_dataset = FontDataset(train_path, config_path)
-        self.val_dataset = FontDataset(val_path, config_path)
-        self.test_dataset = FontDataset(test_path, config_path)
+        self.train_dataset = FontDataset(train_path, config_path, regression_use_tanh)
+        self.val_dataset = FontDataset(val_path, config_path, regression_use_tanh)
+        self.test_dataset = FontDataset(test_path, config_path, regression_use_tanh)
 
     def get_train_num_iter(self, num_device: int) -> int:
         return math.ceil(
