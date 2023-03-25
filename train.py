@@ -16,11 +16,11 @@ final_batch_size = 128
 single_device_num_workers = 24
 
 
-lr = 0.0001
+lr = 0.00005
 b1 = 0.9
 b2 = 0.999
 
-lambda_font = 2.0
+lambda_font = 4.0
 lambda_direction = 0.5
 lambda_regression = 1.0
 
