@@ -1,4 +1,5 @@
 import os
+import torch
 import pytorch_lightning as ptl
 from pytorch_lightning.loggers import TensorBoardLogger
 
@@ -6,6 +7,8 @@ from detector.data import FontDataModule
 from detector.model import FontDetector, ResNet18Regressor
 from utils import get_current_tag
 
+
+torch.set_float32_matmul_precision('high')
 
 devices = [6, 7]
 
