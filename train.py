@@ -9,10 +9,10 @@ from detector.model import FontDetector, ResNet18Regressor
 from utils import get_current_tag
 
 
-torch.set_float32_matmul_precision('high')
+torch.set_float32_matmul_precision("high")
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--devices', nargs='*', type=int, default=[0])
+parser.add_argument("-d", "--devices", nargs="*", type=int, default=[0])
 
 args = parser.parse_args()
 
