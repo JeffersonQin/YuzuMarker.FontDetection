@@ -44,9 +44,9 @@ def add_exclusion(font: DSFont, reason: str, dataset_base_dir: str, i: int, j: i
     runtime_exclusion_list.append(font.path)
     with open(unqualified_log_file_name, "a+") as f:
         f.write(f"{font.path} # {reason}\n")
-    for i in range(j + 1):
-        image_file_name = f"font_{i}_img_{j}.jpg"
-        label_file_name = f"font_{i}_img_{j}.bin"
+    for jj in range(j + 1):
+        image_file_name = f"font_{i}_img_{jj}.jpg"
+        label_file_name = f"font_{i}_img_{jj}.bin"
 
         image_file_path = os.path.join(dataset_base_dir, image_file_name)
         label_file_path = os.path.join(dataset_base_dir, label_file_name)
