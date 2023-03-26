@@ -22,18 +22,18 @@ final_batch_size = 128
 single_device_num_workers = 24
 
 
-lr = 0.00005
+lr = 0.0001
 b1 = 0.9
 b2 = 0.999
 
-lambda_font = 4.0
+lambda_font = 2.0
 lambda_direction = 0.5
 lambda_regression = 1.0
 
 regression_use_tanh = True
 augmentation = True
 
-num_warmup_epochs = 1
+num_warmup_epochs = 5
 num_epochs = 100
 
 log_every_n_steps = 100
