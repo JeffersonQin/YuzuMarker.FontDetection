@@ -30,7 +30,7 @@ lambda_font = 2.0
 lambda_direction = 0.5
 lambda_regression = 1.0
 
-regression_use_tanh = True
+regression_use_tanh = False
 augmentation = True
 
 num_warmup_epochs = 5
