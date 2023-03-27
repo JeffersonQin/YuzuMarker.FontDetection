@@ -11,10 +11,61 @@ import pytorch_lightning as ptl
 
 
 class ResNet18Regressor(nn.Module):
-    def __init__(self, regression_use_tanh: bool=False):
+    def __init__(self, regression_use_tanh: bool = False):
         super().__init__()
         self.model = torchvision.models.resnet18(weights=False)
         self.model.fc = nn.Linear(512, config.FONT_COUNT + 12)
+        self.regression_use_tanh = regression_use_tanh
+
+    def forward(self, X):
+        X = self.model(X)
+        # [0, 1]
+        if not self.regression_use_tanh:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].sigmoid()
+        else:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].tanh()
+        return X
+
+
+class ResNet34Regressor(nn.Module):
+    def __init__(self, regression_use_tanh: bool = False):
+        super().__init__()
+        self.model = torchvision.models.resnet34(weights=False)
+        self.model.fc = nn.Linear(512, config.FONT_COUNT + 12)
+        self.regression_use_tanh = regression_use_tanh
+
+    def forward(self, X):
+        X = self.model(X)
+        # [0, 1]
+        if not self.regression_use_tanh:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].sigmoid()
+        else:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].tanh()
+        return X
+
+
+class ResNet50Regressor(nn.Module):
+    def __init__(self, regression_use_tanh: bool = False):
+        super().__init__()
+        self.model = torchvision.models.resnet50(weights=False)
+        self.model.fc = nn.Linear(2048, config.FONT_COUNT + 12)
+        self.regression_use_tanh = regression_use_tanh
+
+    def forward(self, X):
+        X = self.model(X)
+        # [0, 1]
+        if not self.regression_use_tanh:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].sigmoid()
+        else:
+            X[..., config.FONT_COUNT + 2 :] = X[..., config.FONT_COUNT + 2 :].tanh()
+        return X
+
+
+class ResNet101Regressor(nn.Module):
+    def __init__(self, regression_use_tanh: bool = False):
+        super().__init__()
+        self.model = torchvision.models.resnet101(weights=False)
+        self.model.fc = nn.Linear(2048, config.FONT_COUNT + 12)
         self.regression_use_tanh = regression_use_tanh
 
     def forward(self, X):
@@ -134,7 +185,9 @@ class FontDetector(ptl.LightningModule):
     def on_train_epoch_end(self) -> None:
         self.log("train_font_accur", self.font_accur_train.compute(), sync_dist=True)
         self.log(
-            "train_direction_accur", self.direction_accur_train.compute(), sync_dist=True
+            "train_direction_accur",
+            self.direction_accur_train.compute(),
+            sync_dist=True,
         )
         self.font_accur_train.reset()
         self.direction_accur_train.reset()
