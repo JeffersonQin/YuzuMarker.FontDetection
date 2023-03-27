@@ -13,13 +13,15 @@ torch.set_float32_matmul_precision("high")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--devices", nargs="*", type=int, default=[0])
+parser.add_argument("-b", "--single-batch-size", type=int, default=64)
 
 args = parser.parse_args()
 
 devices = args.devices
+single_batch_size = args.single_batch_size
 
-final_batch_size = 128
-single_device_num_workers = 24
+total_num_workers = os.cpu_count()
+single_device_num_workers = total_num_workers // len(devices)
 
 
 lr = 0.0001
@@ -41,7 +43,7 @@ log_every_n_steps = 100
 num_device = len(devices)
 
 data_module = FontDataModule(
-    batch_size=final_batch_size // num_device,
+    batch_size=single_batch_size,
     num_workers=single_device_num_workers,
     pin_memory=True,
     train_shuffle=True,
