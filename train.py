@@ -5,7 +5,7 @@ import pytorch_lightning as ptl
 from pytorch_lightning.loggers import TensorBoardLogger
 
 from detector.data import FontDataModule
-from detector.model import FontDetector, ResNet18Regressor
+from detector.model import *
 from utils import get_current_tag
 
 
@@ -73,7 +73,7 @@ trainer = ptl.Trainer(
     deterministic=True,
 )
 
-model = ResNet18Regressor(regression_use_tanh=regression_use_tanh)
+model = ResNet34Regressor(regression_use_tanh=regression_use_tanh)
 
 detector = FontDetector(
     model=model,
