@@ -130,6 +130,7 @@ class FontDetector(ptl.LightningModule):
         betas: Tuple[float, float],
         num_warmup_iters: int,
         num_iters: int,
+        num_epochs: int,
     ):
         super().__init__()
         self.model = model
@@ -156,6 +157,7 @@ class FontDetector(ptl.LightningModule):
         self.betas = betas
         self.num_warmup_iters = num_warmup_iters
         self.num_iters = num_iters
+        self.num_epochs = num_epochs
         self.load_step = 0
 
     def forward(self, x):
@@ -240,7 +242,8 @@ class FontDetector(ptl.LightningModule):
         self.scheduler = CosineWarmupScheduler(
             optimizer, self.num_warmup_iters, self.num_iters
         )
-        for _ in range(self.load_step):
+        print("Load epoch:", self.load_epoch)
+        for _ in range(self.num_iters * self.load_epoch // self.num_epochs):
             self.scheduler.step()
         print("Current learning rate set to:", self.scheduler.get_last_lr())
         return optimizer
@@ -261,4 +264,4 @@ class FontDetector(ptl.LightningModule):
         self.scheduler.step()
 
     def on_load_checkpoint(self, checkpoint: Dict[str, Any]) -> None:
-        self.load_step = checkpoint["global_step"]
+        self.load_epoch = checkpoint["epoch"]

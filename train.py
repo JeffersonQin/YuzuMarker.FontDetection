@@ -87,6 +87,7 @@ detector = FontDetector(
     betas=(b1, b2),
     num_warmup_iters=num_warmup_iter,
     num_iters=num_iters,
+    num_epochs=num_epochs,
 )
 
 trainer.fit(detector, datamodule=data_module, ckpt_path=args.checkpoint)
