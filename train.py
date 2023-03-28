@@ -14,6 +14,7 @@ torch.set_float32_matmul_precision("high")
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--devices", nargs="*", type=int, default=[0])
 parser.add_argument("-b", "--single-batch-size", type=int, default=64)
+parser.add_argument("-c", "--checkpoint", type=str, default=None)
 
 args = parser.parse_args()
 
@@ -88,5 +89,5 @@ detector = FontDetector(
     num_iters=num_iters,
 )
 
-trainer.fit(detector, datamodule=data_module)
+trainer.fit(detector, datamodule=data_module, ckpt_path=args.checkpoint)
 trainer.test(detector, datamodule=data_module)
