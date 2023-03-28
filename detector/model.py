@@ -156,6 +156,7 @@ class FontDetector(ptl.LightningModule):
         self.betas = betas
         self.num_warmup_iters = num_warmup_iters
         self.num_iters = num_iters
+        self.load_step = 0
 
     def forward(self, x):
         return self.model(x)
@@ -239,6 +240,9 @@ class FontDetector(ptl.LightningModule):
         self.scheduler = CosineWarmupScheduler(
             optimizer, self.num_warmup_iters, self.num_iters
         )
+        for _ in range(self.load_step):
+            self.scheduler.step()
+        print("Current learning rate set to:", self.scheduler.get_last_lr())
         return optimizer
 
     def optimizer_step(
@@ -255,3 +259,6 @@ class FontDetector(ptl.LightningModule):
         )
         self.log("lr", self.scheduler.get_last_lr()[0])
         self.scheduler.step()
+
+    def on_load_checkpoint(self, checkpoint: Dict[str, Any]) -> None:
+        self.load_step = checkpoint["global_step"]
