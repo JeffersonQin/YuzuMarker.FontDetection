@@ -158,7 +158,7 @@ class FontDetector(ptl.LightningModule):
         self.num_warmup_iters = num_warmup_iters
         self.num_iters = num_iters
         self.num_epochs = num_epochs
-        self.load_step = 0
+        self.load_epoch = 0
 
     def forward(self, x):
         return self.model(x)
