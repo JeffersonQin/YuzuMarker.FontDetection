@@ -76,7 +76,7 @@ trainer = ptl.Trainer(
     deterministic=True,
 )
 
-model = ResNet34Regressor(regression_use_tanh=regression_use_tanh)
+model = ResNet50Regressor(regression_use_tanh=regression_use_tanh)
 
 detector = FontDetector(
     model=model,
