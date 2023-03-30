@@ -138,6 +138,28 @@ The generation is CPU bound, and the generation speed is highly dependent on the
 
 Some fonts are problematic during the generation process. The script has an manual exclusion list in `config/fonts.yml` and also support unqualified font detection on the fly. The script will automatically skip the problematic fonts and log them for future model training.
 
+## Font Classification Experiment Results
+
+On our synthesized dataset,
+
+| Backbone | Output Normalization | Data Aug | Input Size | Hyper Param | Accur | Commit | Dataset |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| ResNet-18 | Sigmoid | ❌ | 512x512 | I<sup>1</sup> | 18.58% | 5c43f60 | I<sup>4</sup> |
+| ResNet-18 | Sigmoid | ❌ | 512x512 | II<sup>2</sup> | 14.39% | 5a85fd3 | I |
+| ResNet-18 | Tanh | ❌ | 512x512 | II | 16.24% | ff82fe6 | I |
+| ResNet-18 | Tanh | ✅<sup>3</sup> | 512x512 | II | 27.71% | a976004 | I |
+| ResNet-18 | Tanh | ✅ | 512x512 | I | 29.95% | 8364103 | I |
+| ResNet-18 | Sigmoid | ✅ | 512x512 | I | 29.37% [Early stop] | 8d2e833 | I |
+| ResNet-18 | Sigmoid | ✅ | 416x416 | I | [Lower Trend] | d5a3215 | I |
+| ResNet-18 | Sigmoid | ✅ | 320x320 | I | [Lower Trend] | afcdd80 | I |
+| ResNet-18 | Sigmoid | ✅ | 224x224 | I | [Lower Trend] | 8b9de80 | I |
+| ResNet-34 | Sigmoid | ✅ | 512x512 | I | 32.03% | 912d566 | I |
+
+* <sup>1</sup> `learning rate = 0.0001, lambda = (2, 0.5, 1)`
+* <sup>2</sup> `learning rate = 0.00005, lambda = (4, 0.5, 1)`
+* <sup>3</sup> Color Jitter + Random Crop + Random Horizontal Flip
+* <sup>4</sup> Initial version of synthesized dataset
+
 ## Related works and Resources
 
 * Font Identification and Recommendations: https://mangahelpers.com/forum/threads/font-identification-and-recommendations.35672/
