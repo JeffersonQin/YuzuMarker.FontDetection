@@ -12,9 +12,42 @@ from utils import get_current_tag
 torch.set_float32_matmul_precision("high")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-d", "--devices", nargs="*", type=int, default=[0])
-parser.add_argument("-b", "--single-batch-size", type=int, default=64)
-parser.add_argument("-c", "--checkpoint", type=str, default=None)
+parser.add_argument(
+    "-d",
+    "--devices",
+    nargs="*",
+    type=int,
+    default=[0],
+    help="GPU devices to use (default: [0])",
+)
+parser.add_argument(
+    "-b",
+    "--single-batch-size",
+    type=int,
+    default=64,
+    help="Batch size of single device (default: 64)",
+)
+parser.add_argument(
+    "-c",
+    "--checkpoint",
+    type=str,
+    default=None,
+    help="Trainer checkpoint path (default: None)",
+)
+parser.add_argument(
+    "-m",
+    "--model",
+    type=str,
+    default="resnet18",
+    choices=["resnet18", "resnet34", "resnet50", "resnet101"],
+    help="Model to use (default: resnet18)",
+)
+parser.add_argument(
+    "-p",
+    "--pretrained",
+    action="store_true",
+    help="Use pretrained model for ResNet (default: False)",
+)
 
 args = parser.parse_args()
 
@@ -76,7 +109,24 @@ trainer = ptl.Trainer(
     deterministic=True,
 )
 
-model = ResNet50Regressor(regression_use_tanh=regression_use_tanh)
+if args.model == "resnet18":
+    model = ResNet18Regressor(
+        pretrained=args.pretrained, regression_use_tanh=regression_use_tanh
+    )
+elif args.model == "resnet34":
+    model = ResNet34Regressor(
+        pretrained=args.pretrained, regression_use_tanh=regression_use_tanh
+    )
+elif args.model == "resnet50":
+    model = ResNet50Regressor(
+        pretrained=args.pretrained, regression_use_tanh=regression_use_tanh
+    )
+elif args.model == "resnet101":
+    model = ResNet101Regressor(
+        pretrained=args.pretrained, regression_use_tanh=regression_use_tanh
+    )
+else:
+    raise NotImplementedError()
 
 detector = FontDetector(
     model=model,

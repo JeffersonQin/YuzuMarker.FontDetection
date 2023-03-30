@@ -11,9 +11,10 @@ import pytorch_lightning as ptl
 
 
 class ResNet18Regressor(nn.Module):
-    def __init__(self, regression_use_tanh: bool = False):
+    def __init__(self, pretrained: bool = False, regression_use_tanh: bool = False):
         super().__init__()
-        self.model = torchvision.models.resnet18(weights=False)
+        weights = torchvision.models.ResNet18_Weights.DEFAULT if pretrained else None
+        self.model = torchvision.models.resnet18(weights=weights)
         self.model.fc = nn.Linear(512, config.FONT_COUNT + 12)
         self.regression_use_tanh = regression_use_tanh
 
@@ -28,9 +29,10 @@ class ResNet18Regressor(nn.Module):
 
 
 class ResNet34Regressor(nn.Module):
-    def __init__(self, regression_use_tanh: bool = False):
+    def __init__(self, pretrained: bool = False, regression_use_tanh: bool = False):
         super().__init__()
-        self.model = torchvision.models.resnet34(weights=False)
+        weights = torchvision.models.ResNet34_Weights.DEFAULT if pretrained else None
+        self.model = torchvision.models.resnet34(weights=weights)
         self.model.fc = nn.Linear(512, config.FONT_COUNT + 12)
         self.regression_use_tanh = regression_use_tanh
 
@@ -45,9 +47,10 @@ class ResNet34Regressor(nn.Module):
 
 
 class ResNet50Regressor(nn.Module):
-    def __init__(self, regression_use_tanh: bool = False):
+    def __init__(self, pretrained: bool = False, regression_use_tanh: bool = False):
         super().__init__()
-        self.model = torchvision.models.resnet50(weights=False)
+        weights = torchvision.models.ResNet50_Weights.DEFAULT if pretrained else None
+        self.model = torchvision.models.resnet50(weights=weights)
         self.model.fc = nn.Linear(2048, config.FONT_COUNT + 12)
         self.regression_use_tanh = regression_use_tanh
 
@@ -62,9 +65,10 @@ class ResNet50Regressor(nn.Module):
 
 
 class ResNet101Regressor(nn.Module):
-    def __init__(self, regression_use_tanh: bool = False):
+    def __init__(self, pretrained: bool = False, regression_use_tanh: bool = False):
         super().__init__()
-        self.model = torchvision.models.resnet101(weights=False)
+        weights = torchvision.models.ResNet101_Weights.DEFAULT if pretrained else None
+        self.model = torchvision.models.resnet101(weights=weights)
         self.model.fc = nn.Linear(2048, config.FONT_COUNT + 12)
         self.regression_use_tanh = regression_use_tanh
 
