@@ -48,6 +48,12 @@ parser.add_argument(
     action="store_true",
     help="Use pretrained model for ResNet (default: False)",
 )
+parser.add_argument(
+    "-i",
+    "--crop-roi-bbox",
+    action="store_true",
+    help="Crop ROI bounding box (default: False)",
+)
 
 args = parser.parse_args()
 
@@ -85,6 +91,7 @@ data_module = FontDataModule(
     test_shuffle=False,
     regression_use_tanh=regression_use_tanh,
     train_transforms=augmentation,
+    crop_roi_bbox=args.crop_roi_bbox,
 )
 
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs

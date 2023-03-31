@@ -96,11 +96,13 @@ class FontDataset(Dataset):
         config_path: str = "configs/font.yml",
         regression_use_tanh: bool = False,
         transforms: bool = False,
+        crop_roi_bbox: bool = False,
     ):
         self.path = path
         self.fonts = load_font_with_exclusion(config_path)
         self.regression_use_tanh = regression_use_tanh
         self.transforms = transforms
+        self.crop_roi_bbox = crop_roi_bbox
 
         self.images = [
             os.path.join(path, f) for f in os.listdir(path) if f.endswith(".jpg")
@@ -146,6 +148,12 @@ class FontDataset(Dataset):
         with open(label_path, "rb") as f:
             label: FontLabel = pickle.load(f)
 
+        if self.crop_roi_bbox:
+            left, top, width, height = label.bbox
+            image = TF.crop(image, top, left, height, width)
+            label.image_width = width
+            label.image_height = height
+
         # encode label
         label = self.fontlabel2tensor(label, label_path)
 
@@ -188,6 +196,7 @@ class FontDataModule(LightningDataModule):
         train_transforms: bool = False,
         val_transforms: bool = False,
         test_transforms: bool = False,
+        crop_roi_bbox: bool = False,
         regression_use_tanh: bool = False,
         **kwargs,
     ):
@@ -197,13 +206,17 @@ class FontDataModule(LightningDataModule):
         self.val_shuffle = val_shuffle
         self.test_shuffle = test_shuffle
         self.train_dataset = FontDataset(
-            train_path, config_path, regression_use_tanh, train_transforms
+            train_path,
+            config_path,
+            regression_use_tanh,
+            train_transforms,
+            crop_roi_bbox,
         )
         self.val_dataset = FontDataset(
-            val_path, config_path, regression_use_tanh, val_transforms
+            val_path, config_path, regression_use_tanh, val_transforms, crop_roi_bbox
         )
         self.test_dataset = FontDataset(
-            test_path, config_path, regression_use_tanh, test_transforms
+            test_path, config_path, regression_use_tanh, test_transforms, crop_roi_bbox
         )
 
     def get_train_num_iter(self, num_device: int) -> int:
