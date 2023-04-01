@@ -17,13 +17,19 @@ from PIL import Image
 
 
 class RandomColorJitter(object):
-    def __init__(self, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.05):
+    def __init__(
+        self, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.05, preserve=0.2
+    ):
         self.brightness = brightness
         self.contrast = contrast
         self.saturation = saturation
         self.hue = hue
+        self.preserve = preserve
 
     def __call__(self, batch):
+        if random.random() < self.preserve:
+            return batch
+
         image, label = batch
         text_color = label[2:5].clone().view(3, 1, 1)
         stroke_color = label[7:10].clone().view(3, 1, 1)
@@ -54,10 +60,14 @@ class RandomColorJitter(object):
 
 
 class RandomCrop(object):
-    def __init__(self, crop_factor: float = 0.1):
+    def __init__(self, crop_factor: float = 0.1, preserve: float = 0.2):
         self.crop_factor = crop_factor
+        self.preserve = preserve
 
     def __call__(self, batch):
+        if random.random() < self.preserve:
+            return batch
+
         image, label = batch
         width, height = image.size
 
@@ -80,10 +90,14 @@ class RandomCrop(object):
 
 
 class RandomRotate(object):
-    def __init__(self, max_angle: int = 15):
+    def __init__(self, max_angle: int = 15, preserve: float = 0.2):
         self.max_angle = max_angle
+        self.preserve = preserve
 
     def __call__(self, batch):
+        if random.random() < self.preserve:
+            return batch
+
         image, label = batch
 
         angle = random.uniform(-self.max_angle, self.max_angle)
@@ -177,8 +191,8 @@ class FontDataset(Dataset):
             if self.transforms is not None:
                 transform = transforms.Compose(
                     [
-                        transforms.RandomApply(RandomColorJitter(), p=0.8),
-                        transforms.RandomApply(RandomCrop(), p=0.8),
+                        RandomColorJitter(preserve=0.2),
+                        RandomCrop(preserve=0.2),
                     ]
                 )
                 image, label = transform((image, label))
@@ -210,20 +224,15 @@ class FontDataset(Dataset):
 
             transform = transforms.Compose(
                 [
-                    transforms.RandomApply(RandomColorJitter(), p=0.8),
-                    RandomCrop(crop_factor=0.54),
-                    transforms.RandomApply(RandomRotate(), p=0.8),
+                    RandomColorJitter(preserve=0.2),
+                    RandomCrop(crop_factor=0.54, preserve=0),
+                    RandomRotate(preserve=0.2),
                 ]
             )
             image, label = transform((image, label))
 
-            transform = transforms.Compose(
-                [
-                    transforms.RandomApply(
-                        transforms.GaussianBlur(random.randint(2, 5), sigma=(0.1, 5.0)),
-                        p=0.8,
-                    ),
-                ]
+            transform = transforms.GaussianBlur(
+                random.randint(1, 3) * 2 - 1, sigma=(0.1, 5.0)
             )
 
             image = transform(image)
@@ -259,9 +268,9 @@ class FontDataModule(LightningDataModule):
         train_shuffle: bool = True,
         val_shuffle: bool = False,
         test_shuffle: bool = False,
-        train_transforms: bool = False,
-        val_transforms: bool = False,
-        test_transforms: bool = False,
+        train_transforms: bool = None,
+        val_transforms: bool = None,
+        test_transforms: bool = None,
         crop_roi_bbox: bool = False,
         regression_use_tanh: bool = False,
         **kwargs,
