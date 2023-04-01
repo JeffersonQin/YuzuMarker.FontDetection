@@ -155,7 +155,7 @@ On our synthesized dataset,
 | ResNet-18 | ❌ | Sigmoid | ✅ | 224x224 | I | [Lower Trend] | 8b9de80 | I |
 | ResNet-34 | ❌ | Sigmoid | ✅ | 512x512 | I | 32.03% | 912d566 | I |
 | ResNet-50 | ❌ | Sigmoid | ✅ | 512x512 | I | 34.21% | e980b66 | I |
-| ResNet-18 | ✅ | Sigmoid | ✅ | 512x512 | I | 34.21% | 416c7bb | I |
+| ResNet-18 | ✅ | Sigmoid | ✅ | 512x512 | I | 31.24% | 416c7bb | I |
 
 * <sup>1</sup> `learning rate = 0.0001, lambda = (2, 0.5, 1)`
 * <sup>2</sup> `learning rate = 0.00005, lambda = (4, 0.5, 1)`
