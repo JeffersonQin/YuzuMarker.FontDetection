@@ -54,6 +54,14 @@ parser.add_argument(
     action="store_true",
     help="Crop ROI bounding box (default: False)",
 )
+parser.add_argument(
+    "-a",
+    "--augmentation",
+    type=str,
+    default=None,
+    choices=["v1", "v2"],
+    help="Augmentation strategy to use (default: None)",
+)
 
 args = parser.parse_args()
 
@@ -73,7 +81,6 @@ lambda_direction = 0.5
 lambda_regression = 1.0
 
 regression_use_tanh = False
-augmentation = True
 
 num_warmup_epochs = 5
 num_epochs = 100
@@ -90,7 +97,7 @@ data_module = FontDataModule(
     val_shuffle=False,
     test_shuffle=False,
     regression_use_tanh=regression_use_tanh,
-    train_transforms=augmentation,
+    train_transforms=args.augmentation,
     crop_roi_bbox=args.crop_roi_bbox,
 )
 

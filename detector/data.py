@@ -17,19 +17,13 @@ from PIL import Image
 
 
 class RandomColorJitter(object):
-    def __init__(
-        self, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.05, preserve=0.2
-    ):
+    def __init__(self, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.05):
         self.brightness = brightness
         self.contrast = contrast
         self.saturation = saturation
         self.hue = hue
-        self.preserve = preserve
 
     def __call__(self, batch):
-        if random.random() < self.preserve:
-            return batch
-
         image, label = batch
         text_color = label[2:5].clone().view(3, 1, 1)
         stroke_color = label[7:10].clone().view(3, 1, 1)
@@ -60,14 +54,10 @@ class RandomColorJitter(object):
 
 
 class RandomCrop(object):
-    def __init__(self, crop_factor: float = 0.1, preserve: float = 0.2):
+    def __init__(self, crop_factor: float = 0.1):
         self.crop_factor = crop_factor
-        self.preserve = preserve
 
     def __call__(self, batch):
-        if random.random() < self.preserve:
-            return batch
-
         image, label = batch
         width, height = image.size
 
@@ -89,15 +79,37 @@ class RandomCrop(object):
         return image, label
 
 
+class RandomRotate(object):
+    def __init__(self, max_angle: int = 15):
+        self.max_angle = max_angle
+
+    def __call__(self, batch):
+        image, label = batch
+
+        angle = random.uniform(-self.max_angle, self.max_angle)
+        image = TF.rotate(image, angle)
+        label[11] = label[11] + angle / 180
+        return image, label
+
+
 class FontDataset(Dataset):
     def __init__(
         self,
         path: str,
         config_path: str = "configs/font.yml",
         regression_use_tanh: bool = False,
-        transforms: bool = False,
+        transforms: str = None,
         crop_roi_bbox: bool = False,
     ):
+        """Font dataset
+
+        Args:
+            path (str): path to the dataset
+            config_path (str, optional): path to font config file. Defaults to "configs/font.yml".
+            regression_use_tanh (bool, optional): whether use tanh as regression normalization. Defaults to False.
+            transforms (str, optional): choose from None, 'v1', 'v2'. Defaults to None.
+            crop_roi_bbox (bool, optional): whether to crop text roi bbox, must be true when transform='v2'. Defaults to False.
+        """
         self.path = path
         self.fonts = load_font_with_exclusion(config_path)
         self.regression_use_tanh = regression_use_tanh
@@ -108,6 +120,9 @@ class FontDataset(Dataset):
             os.path.join(path, f) for f in os.listdir(path) if f.endswith(".jpg")
         ]
         self.images.sort()
+
+        if transforms == "v2":
+            assert crop_roi_bbox, "crop_roi_bbox must be true when transform='v2'"
 
     def __len__(self):
         return len(self.images)
@@ -148,24 +163,70 @@ class FontDataset(Dataset):
         with open(label_path, "rb") as f:
             label: FontLabel = pickle.load(f)
 
-        if self.crop_roi_bbox:
+        if (self.transforms == "v1") or (self.transforms is None):
+            if self.crop_roi_bbox:
+                left, top, width, height = label.bbox
+                image = TF.crop(image, top, left, height, width)
+                label.image_width = width
+                label.image_height = height
+
+            # encode label
+            label = self.fontlabel2tensor(label, label_path)
+
+            # data augmentation
+            if self.transforms is not None:
+                transform = transforms.Compose(
+                    [
+                        transforms.RandomApply(RandomColorJitter(), p=0.8),
+                        transforms.RandomApply(RandomCrop(), p=0.8),
+                    ]
+                )
+                image, label = transform((image, label))
+        elif self.transforms == "v2":
+            # crop from 30% to 130% of bbox
             left, top, width, height = label.bbox
+
+            right = left + width
+            bottom = top + height
+
+            width_delta = width * 0.07
+            height_delta = height * 0.07
+
+            left = max(0, int(left - width_delta))
+            top = max(0, int(top - height_delta))
+
+            right = min(image.width, int(right + width_delta))
+            bottom = min(image.height, int(bottom + height_delta))
+
+            width = right - left
+            height = bottom - top
+
             image = TF.crop(image, top, left, height, width)
             label.image_width = width
             label.image_height = height
 
-        # encode label
-        label = self.fontlabel2tensor(label, label_path)
+            # encode label
+            label = self.fontlabel2tensor(label, label_path)
 
-        # data augmentation
-        if self.transforms:
             transform = transforms.Compose(
                 [
-                    RandomColorJitter(),
-                    RandomCrop(),
+                    transforms.RandomApply(RandomColorJitter(), p=0.8),
+                    RandomCrop(crop_factor=0.54),
+                    transforms.RandomApply(RandomRotate(), p=0.8),
                 ]
             )
             image, label = transform((image, label))
+
+            transform = transforms.Compose(
+                [
+                    transforms.RandomApply(
+                        transforms.GaussianBlur(random.randint(2, 5), sigma=(0.1, 5.0)),
+                        p=0.8,
+                    ),
+                ]
+            )
+
+            image = transform(image)
 
         # resize and to tensor
         transform = transforms.Compose(
@@ -175,6 +236,11 @@ class FontDataset(Dataset):
             ]
         )
         image = transform(image)
+
+        if self.transforms == "v2":
+            # noise
+            if random.random() < 0.9:
+                image = image + torch.randn_like(image) * random.random() * 0.05
 
         # normalize label
         if self.regression_use_tanh:
