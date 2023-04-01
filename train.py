@@ -154,5 +154,8 @@ detector = FontDetector(
     num_epochs=num_epochs,
 )
 
+if torch.__version__ >= "2.0":
+    detector = torch.compile(detector)
+
 trainer.fit(detector, datamodule=data_module, ckpt_path=args.checkpoint)
 trainer.test(detector, datamodule=data_module)
