@@ -62,6 +62,13 @@ parser.add_argument(
     choices=["v1", "v2"],
     help="Augmentation strategy to use (default: None)",
 )
+parser.add_argument(
+    "-l",
+    "--lr",
+    type=float,
+    default=0.0001,
+    help="Learning rate (default: 0.0001)",
+)
 
 args = parser.parse_args()
 
@@ -72,7 +79,7 @@ total_num_workers = os.cpu_count()
 single_device_num_workers = total_num_workers // len(devices)
 
 
-lr = 0.0001
+lr = args.lr
 b1 = 0.9
 b2 = 0.999
 
