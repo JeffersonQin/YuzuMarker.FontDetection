@@ -69,6 +69,14 @@ parser.add_argument(
     default=0.0001,
     help="Learning rate (default: 0.0001)",
 )
+parser.add_argument(
+    "-s",
+    "--datasets",
+    nargs="*",
+    type=str,
+    default=["./dataset/font_img"],
+    help="Datasets paths, seperated by space (default: ['./dataset/font_img'])",
+)
 
 args = parser.parse_args()
 
@@ -97,6 +105,9 @@ log_every_n_steps = 100
 num_device = len(devices)
 
 data_module = FontDataModule(
+    train_paths=[os.path.join(path, "train") for path in args.datasets],
+    val_paths=[os.path.join(path, "val") for path in args.datasets],
+    test_paths=[os.path.join(path, "test") for path in args.datasets],
     batch_size=single_batch_size,
     num_workers=single_device_num_workers,
     pin_memory=True,

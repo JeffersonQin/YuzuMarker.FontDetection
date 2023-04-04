@@ -11,7 +11,7 @@ import torch
 import torchvision.transforms as transforms
 import torchvision.transforms.functional as TF
 from typing import List, Dict, Tuple
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader, ConcatDataset
 from pytorch_lightning import LightningDataModule
 from PIL import Image
 
@@ -262,9 +262,9 @@ class FontDataModule(LightningDataModule):
     def __init__(
         self,
         config_path: str = "configs/font.yml",
-        train_path: str = "./dataset/font_img/train",
-        val_path: str = "./dataset/font_img/val",
-        test_path: str = "./dataset/font_img/test",
+        train_paths: List[str] = ["./dataset/font_img/train"],
+        val_paths: List[str] = ["./dataset/font_img/val"],
+        test_paths: List[str] = ["./dataset/font_img/test"],
         train_shuffle: bool = True,
         val_shuffle: bool = False,
         test_shuffle: bool = False,
@@ -280,18 +280,41 @@ class FontDataModule(LightningDataModule):
         self.train_shuffle = train_shuffle
         self.val_shuffle = val_shuffle
         self.test_shuffle = test_shuffle
-        self.train_dataset = FontDataset(
-            train_path,
-            config_path,
-            regression_use_tanh,
-            train_transforms,
-            crop_roi_bbox,
+        self.train_dataset = ConcatDataset(
+            [
+                FontDataset(
+                    train_path,
+                    config_path,
+                    regression_use_tanh,
+                    train_transforms,
+                    crop_roi_bbox,
+                )
+                for train_path in train_paths
+            ]
         )
-        self.val_dataset = FontDataset(
-            val_path, config_path, regression_use_tanh, val_transforms, crop_roi_bbox
+        self.val_dataset = ConcatDataset(
+            [
+                FontDataset(
+                    val_path,
+                    config_path,
+                    regression_use_tanh,
+                    val_transforms,
+                    crop_roi_bbox,
+                )
+                for val_path in val_paths
+            ]
         )
-        self.test_dataset = FontDataset(
-            test_path, config_path, regression_use_tanh, test_transforms, crop_roi_bbox
+        self.test_dataset = ConcatDataset(
+            [
+                FontDataset(
+                    test_path,
+                    config_path,
+                    regression_use_tanh,
+                    test_transforms,
+                    crop_roi_bbox,
+                )
+                for test_path in test_paths
+            ]
         )
 
     def get_train_num_iter(self, num_device: int) -> int:
