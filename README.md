@@ -144,10 +144,10 @@ On our synthesized dataset,
 
 | Backbone | Data Aug | Pretrained | Crop<br>Text<br>BBox | Output<br>Norm | Input Size | Hyper<br>Param | Accur | Commit | Dataset |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| ResNet-18 | ❌ | ❌ | ❌ | Sigmoid | 512x512 | I<sup>1</sup> | 18.58% | 5c43f60 | I<sup>3</sup> |
+| ResNet-18 | ❌ | ❌ | ❌ | Sigmoid | 512x512 | I<sup>1</sup> | 18.58% | 5c43f60 | I<sup>5</sup> |
 | ResNet-18 | ❌ | ❌ | ❌ | Sigmoid | 512x512 | II<sup>2</sup> | 14.39% | 5a85fd3 | I |
 | ResNet-18 | ❌ | ❌ | ❌ | Tanh | 512x512 | II | 16.24% | ff82fe6 | I |
-| ResNet-18 | ✅<sup>4</sup> | ❌ | ❌ | Tanh | 512x512 | II | 27.71% | a976004 | I |
+| ResNet-18 | ✅<sup>6</sup> | ❌ | ❌ | Tanh | 512x512 | II | 27.71% | a976004 | I |
 | ResNet-18 | ✅ | ❌ | ❌ | Tanh | 512x512 | I | 29.95% | 8364103 | I |
 | ResNet-18 | ✅ | ❌ | ❌ | Sigmoid | 512x512 | I | 29.37% [Early stop] | 8d2e833 | I |
 | ResNet-18 | ✅ | ❌ | ❌ | Sigmoid | 416x416 | I | [Lower Trend] | d5a3215 | I |
@@ -157,13 +157,16 @@ On our synthesized dataset,
 | ResNet-50 | ✅ | ❌ | ❌ | Sigmoid | 512x512 | I | 34.21% | e980b66 | I |
 | ResNet-18 | ✅ | ✅ | ❌ | Sigmoid | 512x512 | I | 31.24% | 416c7bb | I |
 | ResNet-18 | ✅ | ✅ | ✅ | Sigmoid | 512x512 | I | 34.69% | 855e240 | I |
-| ResNet-18 | ✔️<sup>5</sup> | ✅ | ✅ | Sigmoid | 512x512 | I | 38.32% | 1750035 | I |
+| ResNet-18 | ✔️<sup>7</sup> | ✅ | ✅ | Sigmoid | 512x512 | I | 38.32% | 1750035 | I |
+| ResNet-18 | ✔️ | ✅ | ✅ | Sigmoid | 512x512 | III<sup>3</sup> | 38.87% | 0693434 | I |
 
 * <sup>1</sup> `learning rate = 0.0001, lambda = (2, 0.5, 1)`
 * <sup>2</sup> `learning rate = 0.00005, lambda = (4, 0.5, 1)`
-* <sup>3</sup> Initial version of synthesized dataset
-* <sup>4</sup> Data Augmentation v1: Color Jitter + Random Crop [81%-100%]
-* <sup>5</sup> Data Augmentation v2: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°]
+* <sup>3</sup> `learning rate = 0.001, lambda = (2, 0.5, 1)`
+* <sup>3</sup> `learning rate = 0.01, lambda = (2, 0.5, 1)`
+* <sup>5</sup> Initial version of synthesized dataset
+* <sup>6</sup> Data Augmentation v1: Color Jitter + Random Crop [81%-100%]
+* <sup>7</sup> Data Augmentation v2: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°]
 
 ## Related works and Resources
 
