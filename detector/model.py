@@ -83,16 +83,21 @@ class ResNet101Regressor(nn.Module):
 
 
 class FontDetectorLoss(nn.Module):
-    def __init__(self, lambda_font, lambda_direction, lambda_regression):
+    def __init__(
+        self, lambda_font, lambda_direction, lambda_regression, font_classification_only
+    ):
         super().__init__()
         self.category_loss = nn.CrossEntropyLoss()
         self.regression_loss = nn.MSELoss()
         self.lambda_font = lambda_font
         self.lambda_direction = lambda_direction
         self.lambda_regression = lambda_regression
+        self.font_classfiication_only = font_classification_only
 
     def forward(self, y_hat, y):
         font_cat = self.category_loss(y_hat[..., : config.FONT_COUNT], y[..., 0].long())
+        if self.font_classfiication_only:
+            return self.lambda_font * font_cat
         direction_cat = self.category_loss(
             y_hat[..., config.FONT_COUNT : config.FONT_COUNT + 2], y[..., 1].long()
         )
@@ -130,6 +135,7 @@ class FontDetector(ptl.LightningModule):
         lambda_font: float,
         lambda_direction: float,
         lambda_regression: float,
+        font_classification_only: bool,
         lr: float,
         betas: Tuple[float, float],
         num_warmup_iters: int,
@@ -138,7 +144,9 @@ class FontDetector(ptl.LightningModule):
     ):
         super().__init__()
         self.model = model
-        self.loss = FontDetectorLoss(lambda_font, lambda_direction, lambda_regression)
+        self.loss = FontDetectorLoss(
+            lambda_font, lambda_direction, lambda_regression, font_classification_only
+        )
         self.font_accur_train = torchmetrics.Accuracy(
             task="multiclass", num_classes=config.FONT_COUNT
         )

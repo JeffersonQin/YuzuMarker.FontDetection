@@ -84,6 +84,12 @@ parser.add_argument(
     default=get_current_tag(),
     help="Model name (default: current tag)",
 )
+parser.add_argument(
+    "-f",
+    "--font-classification-only",
+    action="store_true",
+    help="Font classification only (default: False)",
+)
 
 args = parser.parse_args()
 
@@ -177,6 +183,7 @@ detector = FontDetector(
     lambda_font=lambda_font,
     lambda_direction=lambda_direction,
     lambda_regression=lambda_regression,
+    font_classification_only=args.font_classification_only,
     lr=lr,
     betas=(b1, b2),
     num_warmup_iters=num_warmup_iter,
