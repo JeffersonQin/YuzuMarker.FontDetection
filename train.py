@@ -77,6 +77,13 @@ parser.add_argument(
     default=["./dataset/font_img"],
     help="Datasets paths, seperated by space (default: ['./dataset/font_img'])",
 )
+parser.add_argument(
+    "-n",
+    "--model-name",
+    type=str,
+    default=get_current_tag(),
+    help="Model name (default: current tag)",
+)
 
 args = parser.parse_args()
 
@@ -124,7 +131,7 @@ data_module = FontDataModule(
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs
 num_warmup_iter = data_module.get_train_num_iter(num_device) * num_warmup_epochs
 
-model_name = f"{get_current_tag()}"
+model_name = args.model_name
 
 logger_unconditioned = TensorBoardLogger(
     save_dir=os.getcwd(), name="tensorboard", version=model_name
