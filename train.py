@@ -152,7 +152,7 @@ logger_unconditioned = TensorBoardLogger(
     save_dir=os.getcwd(), name="tensorboard", version=model_name
 )
 
-strategy = None if num_device == 1 else "ddp"
+strategy = "auto" if num_device == 1 else "ddp"
 
 trainer = ptl.Trainer(
     max_epochs=num_epochs,
@@ -189,7 +189,7 @@ elif args.model == "deepfont":
 else:
     raise NotImplementedError()
 
-if torch.__version__ >= "2.0":
+if torch.__version__ >= "2.0" and os.name == "posix":
     model = torch.compile(model)
 
 detector = FontDetector(
