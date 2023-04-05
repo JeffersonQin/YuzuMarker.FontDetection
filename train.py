@@ -81,7 +81,7 @@ parser.add_argument(
     "-n",
     "--model-name",
     type=str,
-    default=get_current_tag(),
+    default=None,
     help="Model name (default: current tag)",
 )
 parser.add_argument(
@@ -89,6 +89,13 @@ parser.add_argument(
     "--font-classification-only",
     action="store_true",
     help="Font classification only (default: False)",
+)
+parser.add_argument(
+    "-z",
+    "--size",
+    type=int,
+    default=512,
+    help="Model feature image input size (default: 512)",
 )
 
 args = parser.parse_args()
@@ -98,6 +105,8 @@ single_batch_size = args.single_batch_size
 
 total_num_workers = os.cpu_count()
 single_device_num_workers = total_num_workers // len(devices)
+
+config.INPUT_SIZE = args.size
 
 if os.name == "nt":
     single_device_num_workers = 0
@@ -137,7 +146,7 @@ data_module = FontDataModule(
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs
 num_warmup_iter = data_module.get_train_num_iter(num_device) * num_warmup_epochs
 
-model_name = args.model_name
+model_name = get_current_tag() if args.model_name is None else args.model_name
 
 logger_unconditioned = TensorBoardLogger(
     save_dir=os.getcwd(), name="tensorboard", version=model_name
