@@ -86,6 +86,8 @@ single_batch_size = args.single_batch_size
 total_num_workers = os.cpu_count()
 single_device_num_workers = total_num_workers // len(devices)
 
+if os.name == "nt":
+    single_device_num_workers = 0
 
 lr = args.lr
 b1 = 0.9
