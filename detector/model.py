@@ -10,6 +10,37 @@ import torch.nn as nn
 import pytorch_lightning as ptl
 
 
+class DeepFontBaseline(nn.Module):
+    def __init__(self) -> None:
+        super().__init__()
+        self.model = nn.Sequential(
+            nn.Conv2d(3, 64, 11, 2),
+            nn.BatchNorm2d(64),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(64, 128, 3, 1, 1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(128, 256, 3, 1, 1),
+            nn.ReLU(),
+            nn.Conv2d(256, 256, 3, 1, 1),
+            nn.ReLU(),
+            nn.Conv2d(256, 256, 3, 1, 1),
+            nn.ReLU(),
+            # fc
+            nn.Flatten(),
+            nn.Linear(256 * 12 * 12, 4096),
+            nn.ReLU(),
+            nn.Linear(4096, 4096),
+            nn.ReLU(),
+            nn.Linear(4096, config.FONT_COUNT),
+        )
+
+    def forward(self, X):
+        return self.model(X)
+
+
 class ResNet18Regressor(nn.Module):
     def __init__(self, pretrained: bool = False, regression_use_tanh: bool = False):
         super().__init__()

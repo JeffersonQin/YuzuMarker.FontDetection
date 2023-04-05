@@ -39,7 +39,7 @@ parser.add_argument(
     "--model",
     type=str,
     default="resnet18",
-    choices=["resnet18", "resnet34", "resnet50", "resnet101"],
+    choices=["resnet18", "resnet34", "resnet50", "resnet101", "deepfont"],
     help="Model to use (default: resnet18)",
 )
 parser.add_argument(
@@ -181,6 +181,11 @@ elif args.model == "resnet101":
     model = ResNet101Regressor(
         pretrained=args.pretrained, regression_use_tanh=regression_use_tanh
     )
+elif args.model == "deepfont":
+    assert args.pretrained is False
+    assert args.size == 105
+    assert args.font_classification_only is True
+    model = DeepFontBaseline()
 else:
     raise NotImplementedError()
 
