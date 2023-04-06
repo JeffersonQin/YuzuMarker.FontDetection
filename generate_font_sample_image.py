@@ -10,7 +10,7 @@ font_list, exclusion_rule = load_fonts()
 font_list: List[DSFont] = list(filter(lambda x: not exclusion_rule(x), font_list))
 font_list.sort(key=lambda x: x.path)
 
-width = 350
+width = 320
 height = 150
 font_size = 32
 
@@ -20,9 +20,11 @@ def sample_text(font: DSFont) -> str:
         return "こんにちは、世界\nフォント識別\nHello, world"
     if font.language == "ko":
         return "안녕하세요, 세계\n글꼴 인식하기\nHello, world"
-    if font.language == "zh-Hans":
+    if font.language == "zh":
+        return "你好，世界\n字体识别 字型辨識\nHello, world"
+    if str(font.language).startswith("zh-Hans"):
         return "你好，世界\n字体识别\nHello, world"
-    if font.language == "zh-Hant":
+    if str(font.language).startswith("zh-Hant"):
         return "你好，世界\n字型辨識\nHello, world"
     return "CJK字体\nCJKフォント\nCJK 글꼴"
 
