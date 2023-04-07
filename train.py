@@ -9,8 +9,6 @@ from detector.model import *
 from utils import get_current_tag
 
 
-torch.set_float32_matmul_precision("high")
-
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "-d",
@@ -97,8 +95,18 @@ parser.add_argument(
     default=512,
     help="Model feature image input size (default: 512)",
 )
+parser.add_argument(
+    "-t",
+    "--tensor-core",
+    type=str,
+    choices=["medium", "high", "heighest"],
+    default="high",
+    help="Tensor core precision (default: high)",
+)
 
 args = parser.parse_args()
+
+torch.set_float32_matmul_precision(args.tensor_core)
 
 devices = args.devices
 single_batch_size = args.single_batch_size
