@@ -57,7 +57,7 @@ parser.add_argument(
     "--augmentation",
     type=str,
     default=None,
-    choices=["v1", "v2"],
+    choices=["v1", "v2", "v3"],
     help="Augmentation strategy to use (default: None)",
 )
 parser.add_argument(
@@ -105,7 +105,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "-r",
-    "--preserve-aspect-ratio",
+    "--preserve-aspect-ratio-by-random-crop",
     action="store_true",
     help="Preserve aspect ratio (default: False)",
 )
@@ -155,7 +155,7 @@ data_module = FontDataModule(
     regression_use_tanh=regression_use_tanh,
     train_transforms=args.augmentation,
     crop_roi_bbox=args.crop_roi_bbox,
-    preserve_aspect_ratio_by_random_crop=args.preserve_aspect_ratio,
+    preserve_aspect_ratio_by_random_crop=args.preserve_aspect_ratio_by_random_crop,
 )
 
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs
