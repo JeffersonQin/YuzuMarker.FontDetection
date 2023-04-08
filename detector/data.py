@@ -152,6 +152,21 @@ class RandomCropPreserveAspectRatio(object):
         return image, label
 
 
+class RandomHorizontalFlip(object):
+    def __init__(self, preserve: float = 0.5):
+        self.preserve = preserve
+
+    def __call__(self, batch):
+        if random.random() < self.preserve:
+            return batch
+
+        image, label = batch
+        image = TF.hflip(image)
+        label[11] = 1 - label[11]
+
+        return image, label
+
+
 class FontDataset(Dataset):
     def __init__(
         self,
@@ -222,6 +237,7 @@ class FontDataset(Dataset):
                 RandomColorJitter(preserve=0.2),
                 RandomCrop(crop_factor=0.54, preserve=0),
                 RandomRotate(preserve=0.2),
+                RandomHorizontalFlip(preserve=0.5),
             ]
             image_transforms = [
                 torchvision.transforms.GaussianBlur(
@@ -231,7 +247,6 @@ class FontDataset(Dataset):
                 torchvision.transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
                 torchvision.transforms.ToTensor(),
                 RandomNoise(max_noise=0.05, preserve=0.1),
-                torchvision.transforms.RandomHorizontalFlip(p=0.5),
             ]
         else:
             raise ValueError(f"Unknown transform: {transforms}")
