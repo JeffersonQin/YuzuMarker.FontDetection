@@ -148,7 +148,6 @@ class RandomCropPreserveAspectRatio(object):
         else:
             y = random.randint(0, height - width)
             image = TF.crop(image, y, 0, width, width)
-            label[[5, 6, 10]] = label[[5, 6, 10]] / width * height
         return image, label
 
 
