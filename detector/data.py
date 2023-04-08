@@ -224,10 +224,10 @@ class FontDataset(Dataset):
                 RandomRotate(preserve=0.2),
             ]
             image_transforms = [
-                RandomDownSample(max_ratio=2, preserve=0.5),
                 torchvision.transforms.GaussianBlur(
                     random.randint(1, 3) * 2 - 1, sigma=(0.1, 5.0)
                 ),
+                RandomDownSample(max_ratio=2, preserve=0.5),
                 torchvision.transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
                 torchvision.transforms.ToTensor(),
                 RandomNoise(max_noise=0.05, preserve=0.1),
