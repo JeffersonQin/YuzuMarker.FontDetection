@@ -85,7 +85,7 @@ class RandomCrop(object):
         # crop image
         image = TF.crop(image, top, left, height, width)
 
-        label[[5, 6, 10]] = label[[5, 6, 10]] * (1 - random_height)
+        label[[5, 6, 10]] = label[[5, 6, 10]] / (1 - random_width)
         return image, label
 
 
