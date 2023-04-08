@@ -8,7 +8,7 @@ import os
 import random
 import pickle
 import torch
-import torchvision.transforms as transforms
+import torchvision
 import torchvision.transforms.functional as TF
 from typing import List, Dict, Tuple
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
@@ -106,6 +106,50 @@ class RandomRotate(object):
         return image, label
 
 
+class RandomNoise(object):
+    def __init__(self, max_noise: float = 0.05, preserve: float = 0.1):
+        self.max_noise = max_noise
+        self.preserve = preserve
+
+    def __call__(self, image):
+        if random.random() < self.preserve:
+            return image
+        return image + torch.randn_like(image) * random.random() * self.max_noise
+
+
+class RandomDownSample(object):
+    def __init__(self, max_ratio: float = 2, preserve: float = 0.5):
+        self.max_ratio = max_ratio
+        self.preserve = preserve
+
+    def __call__(self, image):
+        if random.random() < self.preserve:
+            return image
+        ratio = random.uniform(1, self.max_ratio)
+        return TF.resize(
+            image, (int(image.size[1] / ratio), int(image.size[0] / ratio))
+        )
+
+
+class RandomCropPreserveAspectRatio(object):
+    def __call__(self, batch):
+        image, label = batch
+        width, height = image.size
+
+        if width == height:
+            return batch
+
+        if width > height:
+            x = random.randint(0, width - height)
+            image = TF.crop(image, 0, x, height, height)
+            label[[5, 6, 10]] = label[[5, 6, 10]] / height * width
+        else:
+            y = random.randint(0, height - width)
+            image = TF.crop(image, y, 0, width, width)
+            label[[5, 6, 10]] = label[[5, 6, 10]] / width * height
+        return image, label
+
+
 class FontDataset(Dataset):
     def __init__(
         self,
@@ -114,6 +158,7 @@ class FontDataset(Dataset):
         regression_use_tanh: bool = False,
         transforms: str = None,
         crop_roi_bbox: bool = False,
+        preserve_aspect_ratio_by_random_crop: bool = False,
     ):
         """Font dataset
 
@@ -121,8 +166,9 @@ class FontDataset(Dataset):
             path (str): path to the dataset
             config_path (str, optional): path to font config file. Defaults to "configs/font.yml".
             regression_use_tanh (bool, optional): whether use tanh as regression normalization. Defaults to False.
-            transforms (str, optional): choose from None, 'v1', 'v2'. Defaults to None.
-            crop_roi_bbox (bool, optional): whether to crop text roi bbox, must be true when transform='v2'. Defaults to False.
+            transforms (str, optional): choose from None, 'v1', 'v2', 'v3'. Defaults to None.
+            crop_roi_bbox (bool, optional): whether to crop text roi bbox, must be true when transform='v2' or 'v3'. Defaults to False.
+            preserve_aspect_ratio_by_random_crop (bool, optional): whether to preserve aspect ratio by random cropping maximum squares. Defaults to False.
         """
         self.path = path
         self.fonts = load_font_with_exclusion(config_path)
@@ -135,8 +181,72 @@ class FontDataset(Dataset):
         ]
         self.images.sort()
 
-        if transforms == "v2":
-            assert crop_roi_bbox, "crop_roi_bbox must be true when transform='v2'"
+        if transforms == "v2" or transforms == "v3":
+            assert (
+                crop_roi_bbox
+            ), "crop_roi_bbox must be true when transform='v2' or 'v3'"
+
+        if transforms is None:
+            label_image_transforms = []
+            image_transforms = [
+                torchvision.transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
+                torchvision.transforms.ToTensor(),
+            ]
+        elif transforms == "v1":
+            label_image_transforms = [
+                RandomColorJitter(preserve=0.2),
+                RandomCrop(preserve=0.2),
+            ]
+            image_transforms = [
+                torchvision.transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
+                torchvision.transforms.ToTensor(),
+            ]
+        elif transforms == "v2":
+            label_image_transforms = [
+                RandomColorJitter(preserve=0.2),
+                RandomCrop(crop_factor=0.54, preserve=0),
+                RandomRotate(preserve=0.2),
+            ]
+            image_transforms = [
+                torchvision.transforms.GaussianBlur(
+                    random.randint(1, 3) * 2 - 1, sigma=(0.1, 5.0)
+                ),
+                torchvision.transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
+                torchvision.transforms.ToTensor(),
+                RandomNoise(max_noise=0.05, preserve=0.1),
+            ]
+        elif transforms == "v3":
+            label_image_transforms = [
+                RandomColorJitter(preserve=0.2),
+                RandomCrop(crop_factor=0.54, preserve=0),
+                RandomRotate(preserve=0.2),
+            ]
+            image_transforms = [
+                RandomDownSample(max_ratio=2, preserve=0.5),
+                torchvision.transforms.GaussianBlur(
+                    random.randint(1, 3) * 2 - 1, sigma=(0.1, 5.0)
+                ),
+                torchvision.transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
+                torchvision.transforms.ToTensor(),
+                RandomNoise(max_noise=0.05, preserve=0.1),
+                torchvision.transforms.RandomHorizontalFlip(p=0.5),
+            ]
+        else:
+            raise ValueError(f"Unknown transform: {transforms}")
+
+        if preserve_aspect_ratio_by_random_crop:
+            label_image_transforms.append(RandomCropPreserveAspectRatio())
+
+        if len(label_image_transforms) == 0:
+            self.transform_label_image = None
+        else:
+            self.transform_label_image = torchvision.transforms.Compose(
+                label_image_transforms
+            )
+        if len(image_transforms) == 0:
+            self.transform_image = None
+        else:
+            self.transform_image = torchvision.transforms.Compose(image_transforms)
 
     def __len__(self):
         return len(self.images)
@@ -177,26 +287,14 @@ class FontDataset(Dataset):
         with open(label_path, "rb") as f:
             label: FontLabel = pickle.load(f)
 
+        # preparation
         if (self.transforms == "v1") or (self.transforms is None):
             if self.crop_roi_bbox:
                 left, top, width, height = label.bbox
                 image = TF.crop(image, top, left, height, width)
                 label.image_width = width
                 label.image_height = height
-
-            # encode label
-            label = self.fontlabel2tensor(label, label_path)
-
-            # data augmentation
-            if self.transforms is not None:
-                transform = transforms.Compose(
-                    [
-                        RandomColorJitter(preserve=0.2),
-                        RandomCrop(preserve=0.2),
-                    ]
-                )
-                image, label = transform((image, label))
-        elif self.transforms == "v2":
+        elif self.transforms == "v2" or self.transforms == "v3":
             # crop from 30% to 130% of bbox
             left, top, width, height = label.bbox
 
@@ -219,37 +317,14 @@ class FontDataset(Dataset):
             label.image_width = width
             label.image_height = height
 
-            # encode label
-            label = self.fontlabel2tensor(label, label_path)
+        # encode label
+        label = self.fontlabel2tensor(label, label_path)
 
-            transform = transforms.Compose(
-                [
-                    RandomColorJitter(preserve=0.2),
-                    RandomCrop(crop_factor=0.54, preserve=0),
-                    RandomRotate(preserve=0.2),
-                ]
-            )
-            image, label = transform((image, label))
-
-            transform = transforms.GaussianBlur(
-                random.randint(1, 3) * 2 - 1, sigma=(0.1, 5.0)
-            )
-
-            image = transform(image)
-
-        # resize and to tensor
-        transform = transforms.Compose(
-            [
-                transforms.Resize((config.INPUT_SIZE, config.INPUT_SIZE)),
-                transforms.ToTensor(),
-            ]
-        )
-        image = transform(image)
-
-        if self.transforms == "v2":
-            # noise
-            if random.random() < 0.9:
-                image = image + torch.randn_like(image) * random.random() * 0.05
+        # transform
+        if self.transform_label_image is not None:
+            image, label = self.transform_label_image((image, label))
+        if self.transform_image is not None:
+            image = self.transform_image(image)
 
         # normalize label
         if self.regression_use_tanh:
@@ -272,6 +347,7 @@ class FontDataModule(LightningDataModule):
         val_transforms: bool = None,
         test_transforms: bool = None,
         crop_roi_bbox: bool = False,
+        preserve_aspect_ratio_by_random_crop: bool = False,
         regression_use_tanh: bool = False,
         **kwargs,
     ):
@@ -288,6 +364,7 @@ class FontDataModule(LightningDataModule):
                     regression_use_tanh,
                     train_transforms,
                     crop_roi_bbox,
+                    preserve_aspect_ratio_by_random_crop,
                 )
                 for train_path in train_paths
             ]
@@ -300,6 +377,7 @@ class FontDataModule(LightningDataModule):
                     regression_use_tanh,
                     val_transforms,
                     crop_roi_bbox,
+                    preserve_aspect_ratio_by_random_crop,
                 )
                 for val_path in val_paths
             ]
@@ -312,6 +390,7 @@ class FontDataModule(LightningDataModule):
                     regression_use_tanh,
                     test_transforms,
                     crop_roi_bbox,
+                    preserve_aspect_ratio_by_random_crop,
                 )
                 for test_path in test_paths
             ]

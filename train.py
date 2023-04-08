@@ -103,6 +103,12 @@ parser.add_argument(
     default="high",
     help="Tensor core precision (default: high)",
 )
+parser.add_argument(
+    "-r",
+    "--preserve-aspect-ratio",
+    action="store_true",
+    help="Preserve aspect ratio (default: False)",
+)
 
 args = parser.parse_args()
 
@@ -149,6 +155,7 @@ data_module = FontDataModule(
     regression_use_tanh=regression_use_tanh,
     train_transforms=args.augmentation,
     crop_roi_bbox=args.crop_roi_bbox,
+    preserve_aspect_ratio_by_random_crop=args.preserve_aspect_ratio,
 )
 
 num_iters = data_module.get_train_num_iter(num_device) * num_epochs
