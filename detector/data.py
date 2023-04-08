@@ -114,7 +114,9 @@ class RandomNoise(object):
     def __call__(self, image):
         if random.random() < self.preserve:
             return image
-        return image + torch.randn_like(image) * random.random() * self.max_noise
+        return torch.clamp(
+            image + torch.randn_like(image) * random.random() * self.max_noise, 0, 1
+        )
 
 
 class RandomDownSample(object):
