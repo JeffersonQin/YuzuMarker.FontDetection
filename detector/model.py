@@ -298,7 +298,7 @@ class FontDetector(ptl.LightningModule):
             optimizer, self.num_warmup_iters, self.num_iters
         )
         print("Load epoch:", self.load_epoch)
-        for _ in range(self.num_iters * self.load_epoch // self.num_epochs):
+        for _ in range(self.num_iters * (self.load_epoch + 1) // self.num_epochs):
             self.scheduler.step()
         print("Current learning rate set to:", self.scheduler.get_last_lr())
         return optimizer
