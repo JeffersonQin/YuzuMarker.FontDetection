@@ -65,6 +65,6 @@ def load_font_with_exclusion(
     font_list.sort(key=lambda x: x.path)
     print("font count: " + str(len(font_list)))
     ret = {font_list[i].path: i for i in range(len(font_list))}
-    with open("font_list_cache.bin", "wb") as f:
+    with open(cache_path, "wb") as f:
         pickle.dump(ret, f)
     return ret
