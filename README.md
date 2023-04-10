@@ -1,3 +1,12 @@
+---
+title: YuzuMarker.FontDetection
+emoji: 😅
+colorFrom: blue
+colorTo: yellow
+sdk: docker
+app_port: 7860
+---
+
 # YuzuMarker.FontDetection
 
 ## Scene Text Font Dataset Generation
