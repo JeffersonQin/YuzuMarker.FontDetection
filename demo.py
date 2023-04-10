@@ -50,6 +50,13 @@ parser.add_argument(
     action="store_true",
     help="Get public link via Gradio (default: False)",
 )
+parser.add_argument(
+    "-p",
+    "--port",
+    type=int,
+    default=7860,
+    help="Port to use for Gradio (default: 7860)",
+)
 
 args = parser.parse_args()
 
@@ -185,4 +192,4 @@ with gr.Blocks() as demo:
     )
 
 
-demo.launch(share=args.share)
+demo.launch(share=args.share, server_port=args.port)
