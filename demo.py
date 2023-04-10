@@ -1,11 +1,12 @@
 import argparse
 import os
 import gradio as gr
+import pickle
 from PIL import Image
 from torchvision import transforms
 from detector.model import *
 from detector import config
-from font_dataset.font import load_fonts, load_font_with_exclusion
+from font_dataset.font import load_fonts
 from huggingface_hub import hf_hub_download
 
 parser = argparse.ArgumentParser()
@@ -129,14 +130,26 @@ transform = transforms.Compose(
     ]
 )
 
-print("Preparing fonts ...")
-font_list, exclusion_rule = load_fonts()
 
-font_list = list(filter(lambda x: not exclusion_rule(x), font_list))
-font_list.sort(key=lambda x: x.path)
+def prepare_fonts(cache_path="font_demo_cache.bin"):
+    print("Preparing fonts ...")
+    if os.path.exists(cache_path):
+        return pickle.load(open(cache_path, "rb"))
 
-for i in range(len(font_list)):
-    font_list[i].path = font_list[i].path[18:]  # remove ./dataset/fonts/./ prefix
+    font_list, exclusion_rule = load_fonts()
+
+    font_list = list(filter(lambda x: not exclusion_rule(x), font_list))
+    font_list.sort(key=lambda x: x.path)
+
+    for i in range(len(font_list)):
+        font_list[i].path = font_list[i].path[18:]  # remove ./dataset/fonts/./ prefix
+
+    with open(cache_path, "wb") as f:
+        pickle.dump(font_list, f)
+    return font_list
+
+
+font_list = prepare_fonts()
 
 font_demo_images = []
 
