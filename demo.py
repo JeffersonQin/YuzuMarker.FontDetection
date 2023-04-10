@@ -6,6 +6,7 @@ from torchvision import transforms
 from detector.model import *
 from detector import config
 from font_dataset.font import load_fonts, load_font_with_exclusion
+from huggingface_hub import hf_hub_download
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -20,7 +21,7 @@ parser.add_argument(
     "--checkpoint",
     type=str,
     default=None,
-    help="Trainer checkpoint path (default: None)",
+    help="Trainer checkpoint path (default: None). Use link as huggingface://<user>/<repo>/<file> for huggingface.co models, currently only supports model file in the root directory.",
 )
 parser.add_argument(
     "-m",
@@ -75,6 +76,14 @@ else:
 
 if torch.__version__ >= "2.0" and os.name == "posix":
     model = torch.compile(model)
+
+
+if str(args.checkpoint).startswith("huggingface://"):
+    args.checkpoint = args.checkpoint[14:]
+    user, repo, file = args.checkpoint.split("/")
+    repo = f"{user}/{repo}"
+    args.checkpoint = hf_hub_download(repo, file)
+
 
 detector = FontDetector(
     model=model,
