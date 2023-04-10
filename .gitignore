@@ -1,6 +1,7 @@
 demo_fonts/
 tensorboard/
 font_list_cache.bin
+font_demo_cache.bin
 
 *.o
 *.out
