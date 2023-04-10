@@ -58,6 +58,13 @@ parser.add_argument(
     default=7860,
     help="Port to use for Gradio (default: 7860)",
 )
+parser.add_argument(
+    "-a",
+    "--address",
+    type=str,
+    default="127.0.0.1",
+    help="Address to use for Gradio (default: 127.0.0.1)",
+)
 
 args = parser.parse_args()
 
@@ -84,6 +91,7 @@ else:
 
 if torch.__version__ >= "2.0" and os.name == "posix":
     model = torch.compile(model)
+    torch._dynamo.config.suppress_errors = True
 
 
 if str(args.checkpoint).startswith("huggingface://"):
@@ -91,7 +99,6 @@ if str(args.checkpoint).startswith("huggingface://"):
     user, repo, file = args.checkpoint.split("/")
     repo = f"{user}/{repo}"
     args.checkpoint = hf_hub_download(repo, file)
-
 
 detector = FontDetector(
     model=model,
@@ -205,4 +212,4 @@ with gr.Blocks() as demo:
     )
 
 
-demo.launch(share=args.share, server_port=args.port)
+demo.launch(share=args.share, server_port=args.port, server_name=args.address)
