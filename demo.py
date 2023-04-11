@@ -197,8 +197,28 @@ def generate_grid(num_columns, num_rows):
     return ret_images, ret_labels
 
 
+# fmt: off
+intro = \
+"""
+<div align="center">
+<h1>✨ Font Recognition 字体检测 ✨</h1>
+</div>
+
+Project page 项目地址: [https://github.com/JeffersonQin/YuzuMarker.FontDetection](https://github.com/JeffersonQin/YuzuMarker.FontDetection)
+
+Upload an image to detect the font used in the image. Please make sure the text occupies most of the image area to achieve higher recognition accuracy.
+
+上传图片以检测字体，尽量使得图片中的文字占据图片的大部分区域以获得更高的识别准确率。
+
+Click "Run" to start the demo after uploading an image.
+
+上传完成之后点击“Run”开始识别。
+"""
+# fmt: on
+
 with gr.Blocks() as demo:
     with gr.Column():
+        intro = gr.Markdown(intro)
         with gr.Row():
             inp = gr.Image(type="pil", label="Input Image")
             out = gr.Label(num_top_classes=9, label="Output Font")
