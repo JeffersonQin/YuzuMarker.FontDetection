@@ -7,7 +7,16 @@ sdk: docker
 app_port: 7860
 ---
 
-# YuzuMarker.FontDetection
+<div align="center">
+<h1>✨YuzuMarker.FontDetection✨</h1>
+<p>First-ever CJK (Chinese, Japanese, Korean) font recognition model</p>
+<p>
+    <a href="https://huggingface.co/spaces/gyrojeff/YuzuMarker.FontDetection"><img alt="Click here for Online Demo" src="https://img.shields.io/badge/🤗-Open%20In%20Spaces%20(Online Demo)-blue.svg"/></a>
+    <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/JeffersonQin/YuzuMarker.FontDetection"/>
+    <img alt="License" src="https://img.shields.io/github/license/JeffersonQin/YuzuMarker.FontDetection"/>
+    <img alt="Contributors" src="https://img.shields.io/github/contributors/JeffersonQin/YuzuMarker.FontDetection"/>
+</p>
+</div>
 
 ## Scene Text Font Dataset Generation
 
@@ -147,6 +156,43 @@ The generation is CPU bound, and the generation speed is highly dependent on the
 
 Some fonts are problematic during the generation process. The script has an manual exclusion list in `config/fonts.yml` and also support unqualified font detection on the fly. The script will automatically skip the problematic fonts and log them for future model training.
 
+## Model Training
+
+Have the dataset ready under the `dataset` directory, you can start training the model. Note that you can have more than one folder of dataset, and the script will automatically merge them as long as you provide the path to the folder by command line arguments.
+
+```bash
+$ python train.py -h
+usage: train.py [-h] [-d [DEVICES ...]] [-b SINGLE_BATCH_SIZE] [-c CHECKPOINT] [-m {resnet18,resnet34,resnet50,resnet101,deepfont}] [-p] [-i] [-a {v1,v2,v3}]
+                [-l LR] [-s [DATASETS ...]] [-n MODEL_NAME] [-f] [-z SIZE] [-t {medium,high,heighest}] [-r]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d [DEVICES ...], --devices [DEVICES ...]
+                        GPU devices to use (default: [0])
+  -b SINGLE_BATCH_SIZE, --single-batch-size SINGLE_BATCH_SIZE
+                        Batch size of single device (default: 64)
+  -c CHECKPOINT, --checkpoint CHECKPOINT
+                        Trainer checkpoint path (default: None)
+  -m {resnet18,resnet34,resnet50,resnet101,deepfont}, --model {resnet18,resnet34,resnet50,resnet101,deepfont}
+                        Model to use (default: resnet18)
+  -p, --pretrained      Use pretrained model for ResNet (default: False)
+  -i, --crop-roi-bbox   Crop ROI bounding box (default: False)
+  -a {v1,v2,v3}, --augmentation {v1,v2,v3}
+                        Augmentation strategy to use (default: None)
+  -l LR, --lr LR        Learning rate (default: 0.0001)
+  -s [DATASETS ...], --datasets [DATASETS ...]
+                        Datasets paths, seperated by space (default: ['./dataset/font_img'])
+  -n MODEL_NAME, --model-name MODEL_NAME
+                        Model name (default: current tag)
+  -f, --font-classification-only
+                        Font classification only (default: False)
+  -z SIZE, --size SIZE  Model feature image input size (default: 512)
+  -t {medium,high,heighest}, --tensor-core {medium,high,heighest}
+                        Tensor core precision (default: high)
+  -r, --preserve-aspect-ratio-by-random-crop
+                        Preserve aspect ratio (default: False)
+```
+
 ## Font Classification Experiment Results
 
 On our synthesized dataset,
@@ -187,8 +233,53 @@ On our synthesized dataset,
 * <sup>9</sup> Data Augmentation v3: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°] + Random Horizontal Flip + Random Downsample [1, 2]
 * <sup>10</sup> Preserve Aspect Ratio by Random Cropping
 
+## Pretrained Models
+
+Available at: https://huggingface.co/gyrojeff/YuzuMarker.FontDetection/tree/main
+
+Note that since I trained everything on pytorch 2.0 with `torch.compile`, if you want to use the pretrained model you would need to install pytorch 2.0 and compile it with `torch.compile` as in `demo.py`.
+
+## Demo Deployment
+
+To deploy the demo, you would need either the whole font dataset under `./dataset/fonts` or a cache file indicating fonts of model called `font_demo_cache.bin`. This will be later released as resource.
+
+To deploy, first run the following script to generate the demo font image (if you have the fonts dataset):
+
+```bash
+python generate_font_sample_image.py
+```
+
+then run the following script to start the demo server:
+
+```bash
+$ python demo.py -h
+usage: demo.py [-h] [-d DEVICE] [-c CHECKPOINT] [-m {resnet18,resnet34,resnet50,resnet101,deepfont}] [-f] [-z SIZE] [-s] [-p PORT] [-a ADDRESS]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DEVICE, --device DEVICE
+                        GPU devices to use (default: 0), -1 for CPU
+  -c CHECKPOINT, --checkpoint CHECKPOINT
+                        Trainer checkpoint path (default: None). Use link as huggingface://<user>/<repo>/<file> for huggingface.co models, currently only supports model file in the root
+                        directory.
+  -m {resnet18,resnet34,resnet50,resnet101,deepfont}, --model {resnet18,resnet34,resnet50,resnet101,deepfont}
+                        Model to use (default: resnet18)
+  -f, --font-classification-only
+                        Font classification only (default: False)
+  -z SIZE, --size SIZE  Model feature image input size (default: 512)
+  -s, --share           Get public link via Gradio (default: False)
+  -p PORT, --port PORT  Port to use for Gradio (default: 7860)
+  -a ADDRESS, --address ADDRESS
+                        Address to use for Gradio (default: 127.0.0.1)
+```
+
+## Online Demo
+
+The project is also deployed on Huggingface Space: https://huggingface.co/spaces/gyrojeff/YuzuMarker.FontDetection
+
 ## Related works and Resources
 
+* DeepFont: Identify Your Font from An Image: https://arxiv.org/abs/1507.03196
 * Font Identification and Recommendations: https://mangahelpers.com/forum/threads/font-identification-and-recommendations.35672/
 * Unconstrained Text Detection in Manga: a New Dataset and Baseline: https://arxiv.org/pdf/2009.04042.pdf
 * SwordNet: Chinese Character Font Style Recognition Network: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9682683
