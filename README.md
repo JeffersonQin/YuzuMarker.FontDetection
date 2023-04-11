@@ -239,7 +239,7 @@ Available at: https://huggingface.co/gyrojeff/YuzuMarker.FontDetection/tree/main
 
 Note that since I trained everything on pytorch 2.0 with `torch.compile`, if you want to use the pretrained model you would need to install pytorch 2.0 and compile it with `torch.compile` as in `demo.py`.
 
-## Demo Deployment
+## Demo Deployment (Method 1)
 
 To deploy the demo, you would need either the whole font dataset under `./dataset/fonts` or a cache file indicating fonts of model called `font_demo_cache.bin`. This will be later released as resource.
 
@@ -271,6 +271,24 @@ optional arguments:
   -p PORT, --port PORT  Port to use for Gradio (default: 7860)
   -a ADDRESS, --address ADDRESS
                         Address to use for Gradio (default: 127.0.0.1)
+```
+
+## Demo Deployment (Method 2)
+
+If docker is available on your machine, you can deploy directly by docker as how I did for huggingface space.
+
+You may follow the command line argument provided in the last section to change the last line of the `Dockerfile` to accomodate your needs.
+
+Build the docker image:
+
+```bash
+docker build -t yuzumarker.fontdetection .
+```
+
+Run the docker image:
+
+```bash
+docker run -it -p 7860:7860 yuzumarker.fontdetection
 ```
 
 ## Online Demo
