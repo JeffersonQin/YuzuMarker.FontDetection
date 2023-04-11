@@ -17,4 +17,4 @@ COPY --chown=user utils $HOME/app/utils
 COPY --chown=user configs $HOME/app/configs
 COPY --chown=user demo.py $HOME/app/demo.py
 
-CMD ["python", "demo.py", "-d", "-1", "-c", "huggingface://gyrojeff/YuzuMarker.FontDetection/commit=bc0f7fc-epoch=26-step=261954.ckpt", "-m", "resnet50", "-z", "512", "-p", "7860", "-a", "0.0.0.0"]
+CMD ["python", "demo.py", "-d", "-1", "-c", "huggingface://gyrojeff/YuzuMarker.FontDetection/name=4x-epoch=10-step=213444.ckpt", "-m", "resnet50", "-z", "512", "-p", "7860", "-a", "0.0.0.0"]
