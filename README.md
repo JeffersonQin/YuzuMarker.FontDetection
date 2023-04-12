@@ -16,6 +16,7 @@ app_port: 7860
     <img alt="License" src="https://img.shields.io/github/license/JeffersonQin/YuzuMarker.FontDetection"/>
     <img alt="Contributors" src="https://img.shields.io/github/contributors/JeffersonQin/YuzuMarker.FontDetection"/>
 </p>
+<a href="https://www.buymeacoffee.com/gyrojeff" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 </div>
 
 ## Scene Text Font Dataset Generation
@@ -204,7 +205,7 @@ On our synthesized dataset,
 | ResNet-18 | ❌ | ❌ | ❌ | ❌ | Sigmoid | 512x512 | I | 18.58% | 5c43f60 | I | float32 |
 | ResNet-18 | ❌ | ❌ | ❌ | ❌ | Sigmoid | 512x512 | II<sup>2</sup> | 14.39% | 5a85fd3 | I | bfloat16_3x |
 | ResNet-18 | ❌ | ❌ | ❌ | ❌ | Tanh | 512x512 | II | 16.24% | ff82fe6 | I | bfloat16_3x |
-| ResNet-18 | ✅*<sup>7</sup> | ❌ | ❌ | ❌ | Tanh | 512x512 | II | 27.71% | a976004 | I | bfloat16_3x |
+| ResNet-18 | ✅*<sup>8</sup> | ❌ | ❌ | ❌ | Tanh | 512x512 | II | 27.71% | a976004 | I | bfloat16_3x |
 | ResNet-18 | ✅* | ❌ | ❌ | ❌ | Tanh | 512x512 | I | 29.95% | 8364103 | I | bfloat16_3x |
 | ResNet-18 | ✅* | ❌ | ❌ | ❌ | Sigmoid | 512x512 | I | 29.37% [Early stop] | 8d2e833 | I | bfloat16_3x |
 | ResNet-18 | ✅* | ❌ | ❌ | ❌ | Sigmoid | 416x416 | I | [Lower Trend] | d5a3215 | I | bfloat16_3x |
@@ -214,11 +215,12 @@ On our synthesized dataset,
 | ResNet-50 | ✅* | ❌ | ❌ | ❌ | Sigmoid | 512x512 | I | 34.21% | e980b66 | I | bfloat16_3x |
 | ResNet-18 | ✅* | ✅ | ❌ | ❌ | Sigmoid | 512x512 | I | 31.24% | 416c7bb | I | bfloat16_3x |
 | ResNet-18 | ✅* | ✅ | ✅ | ❌ | Sigmoid | 512x512 | I | 34.69% | 855e240 | I | bfloat16_3x |
-| ResNet-18 | ✔️*<sup>8</sup> | ✅ | ✅ | ❌ | Sigmoid | 512x512 | I | 38.32% | 1750035 | I | bfloat16_3x |
+| ResNet-18 | ✔️*<sup>9</sup> | ✅ | ✅ | ❌ | Sigmoid | 512x512 | I | 38.32% | 1750035 | I | bfloat16_3x |
 | ResNet-18 | ✔️* | ✅ | ✅ | ❌ | Sigmoid | 512x512 | III<sup>3</sup> | 38.87% | 0693434 | I | bfloat16_3x |
 | ResNet-50 | ✔️* | ✅ | ✅ | ❌ | Sigmoid | 512x512 | III | 48.99% | bc0f7fc | II<sup>6</sup> | bfloat16_3x |
-| ResNet-50 | ✔️ | ✅ | ✅ | ✅<sup>10</sup> | Sigmoid | 512x512 | III | 46.12% | 0f071a5 | II | bfloat16 |
-| ResNet-50 | ❕<sup>9</sup> | ✅ | ✅ | ❌ | Sigmoid | 512x512 | III | 43.86% | 0f071a5 | II | bfloat16 |
+| ResNet-50 | ✔️ | ✅ | ✅ | ❌ | Sigmoid | 512x512 | III | 48.45% | 0f071a5 | II | bfloat16_3x |
+| ResNet-50 | ✔️ | ✅ | ✅ | ✅<sup>11</sup> | Sigmoid | 512x512 | III | 46.12% | 0f071a5 | II | bfloat16 |
+| ResNet-50 | ❕<sup>10</sup> | ✅ | ✅ | ❌ | Sigmoid | 512x512 | III | 43.86% | 0f071a5 | II | bfloat16 |
 | ResNet-50 | ❕ | ✅ | ✅ | ✅ | Sigmoid | 512x512 | III | 41.35% | 0f071a5 | II | bfloat16 |
 
 * \* Bug in implementation
@@ -227,11 +229,12 @@ On our synthesized dataset,
 * <sup>3</sup> `learning rate = 0.001, lambda = (2, 0.5, 1)`
 * <sup>4</sup> `learning rate = 0.01, lambda = (2, 0.5, 1)`
 * <sup>5</sup> Initial version of synthesized dataset
-* <sup>6</sup> Doubled synthesized dataset
-* <sup>7</sup> Data Augmentation v1: Color Jitter + Random Crop [81%-100%]
-* <sup>8</sup> Data Augmentation v2: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°]
-* <sup>9</sup> Data Augmentation v3: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°] + Random Horizontal Flip + Random Downsample [1, 2]
-* <sup>10</sup> Preserve Aspect Ratio by Random Cropping
+* <sup>6</sup> Doubled synthesized dataset (2x)
+* <sup>7</sup> Quadruple synthesized dataset (4x)
+* <sup>8</sup> Data Augmentation v1: Color Jitter + Random Crop [81%-100%]
+* <sup>9</sup> Data Augmentation v2: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°]
+* <sup>10</sup> Data Augmentation v3: Color Jitter + Random Crop [30%-130%] + Random Gaussian Blur + Random Gaussian Noise + Random Rotation [-15°, 15°] + Random Horizontal Flip + Random Downsample [1, 2]
+* <sup>11</sup> Preserve Aspect Ratio by Random Cropping
 
 ## Pretrained Models
 
