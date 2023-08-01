@@ -304,3 +304,7 @@ The project is also deployed on Huggingface Space: https://huggingface.co/spaces
 * Font Identification and Recommendations: https://mangahelpers.com/forum/threads/font-identification-and-recommendations.35672/
 * Unconstrained Text Detection in Manga: a New Dataset and Baseline: https://arxiv.org/pdf/2009.04042.pdf
 * SwordNet: Chinese Character Font Style Recognition Network: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9682683
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=JeffersonQin/YuzuMarker.FontDetection&type=Date)](https://star-history.com/#JeffersonQin/YuzuMarker.FontDetection&Date)
