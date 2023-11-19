@@ -19,6 +19,11 @@ app_port: 7860
 <a href="https://www.buymeacoffee.com/gyrojeff" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 </div>
 
+## News
+
+- **[Update 2023/05/05] Project recommended on ruanyifeng.com (阮一峰的网络日志 - 科技爱好者周刊): https://www.ruanyifeng.com/blog/2023/05/weekly-issue-253.html**
+- **[Update 2023/11/18] Dataset is now opensource! Download on huggingface from here: https://huggingface.co/datasets/gyrojeff/YuzuMarker.FontDetection/tree/master**
+
 ## Scene Text Font Dataset Generation
 
 This repository also contains data for automatically generating a dataset of scene text images with different fonts. The dataset is generated using the [CJK font pack by VCB-Studio](https://vcb-s.com/archives/1114) and thousands of background image from [pixiv.net](https://pixiv.net).
