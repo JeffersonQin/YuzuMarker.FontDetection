@@ -313,3 +313,17 @@ The project is also deployed on Huggingface Space: https://huggingface.co/spaces
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=JeffersonQin/YuzuMarker.FontDetection&type=Date)](https://star-history.com/#JeffersonQin/YuzuMarker.FontDetection&Date)
+
+## Citation
+
+If you use this work, please cite in the following manner. Thank you.
+
+```
+@misc{qin2023yuzumarkerfont,
+  author       = {Haoyun Qin},
+  title        = {YuzuMarker.FontDetection},
+  year         = {2023},
+  url          = {https://github.com/JeffersonQin/YuzuMarker.FontDetection},
+  note         = {GitHub repository}
+}
+```
